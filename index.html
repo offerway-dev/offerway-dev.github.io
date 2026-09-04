@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offer Promo</title>
+<style>
+  :root{
+    --bg:#0e1116;
+    --card:#ffffff;
+    --text-dark:#1a1f2b;
+    --muted:#8a90a0;
+    --accent:#e8542b;
+    --btn:#1a1f2b;
+    --btn-hover:#000000;
+    --btn2:#e8382b;
+    --btn2-hover:#c92c20;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;
+    padding:0;
+    height:100%;
+    background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:24px;
+  }
+  .logo{
+    display:grid;
+    grid-template-columns:repeat(2,14px);
+    grid-gap:4px;
+    justify-content:center;
+    margin-bottom:24px;
+  }
+  .logo span{
+    width:14px;height:14px;background:var(--accent);
+  }
+  .logo span:nth-child(2){border-radius:0 50% 50% 50%;}
+  .wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .card{
+    background:var(--card);
+    width:100%;
+    max-width:660px;
+    border-radius:6px;
+    padding:48px 40px 40px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+  }
+  h1{
+    font-size:28px;
+    color:var(--text-dark);
+    margin:0 0 32px;
+    font-weight:600;
+  }
+  .timer{
+    display:flex;
+    justify-content:center;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:8px;
+  }
+  .timer div{display:flex;flex-direction:column;align-items:center;min-width:44px;}
+  .timer .num{
+    font-family:"Courier New",monospace;
+    font-size:28px;
+    font-weight:700;
+    color:var(--accent);
+    letter-spacing:1px;
+  }
+  .timer .sep{
+    font-size:24px;
+    font-weight:700;
+    color:var(--muted);
+    padding-bottom:18px;
+  }
+  .timer .label{
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:.5px;
+    margin-top:4px;
+  }
+  .expire-note{
+    font-size:14px;
+    color:var(--muted);
+    margin:0 0 34px;
+  }
+  .actions{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    flex:1 1 220px;
+    max-width:260px;
+    padding:17px 20px;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    color:#fff;
+    background:var(--btn);
+    transition:background .15s ease, transform .1s ease;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+  }
+  .btn:hover{background:var(--btn-hover); transform:translateY(-1px);}
+  .btn.secondary{background:var(--btn2);}
+  .btn.secondary:hover{background:var(--btn2-hover);}
+  .footer{
+    margin-top:28px;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .footer a{color:var(--muted);text-decoration:underline;margin:0 6px;}
+  @media(max-width:480px){
+    .card{padding:36px 20px 28px;}
+    h1{font-size:22px;}
+    .timer{gap:14px;}
+    .timer .num{font-size:20px;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo"><span></span><span></span><span></span><span></span></div>
+    <div class="card">
+      <h1>Access Your Free Resource</h1>
+      <div class="timer" id="timer">
+        <div><span class="num" id="days">02</span><span class="label">DAYS</span></div>
+        <span class="sep">:</span>
+        <div><span class="num" id="hours">23</span><span class="label">HOURS</span></div>
+        <span class="sep">:</span>
+        <div><span class="num" id="minutes">59</span><span class="label">MINUTES</span></div>
+        <span class="sep">:</span>
+        <div><span class="num" id="seconds">59</span><span class="label">SECONDS</span></div>
+      </div>
+      <p class="expire-note">Offer Expire Soon</p>
+      <div class="actions">
+        <a href="#" id="continueBtn" class="btn">Continue &rarr;</a>
+        <a href="#" id="closeBtn" class="btn secondary">Close</a>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="#">Privacy policy</a>|<a href="#">Legal</a>|<a href="#">Terms and conditions</a>
+    </div>
+  </div>
+
+<script>
+  // ====== GANTI LINK SMARTLINK DI SINI ======
+  const CONTINUE_LINK = "https://omg10.com/4/11726782";
+  const CLOSE_LINK     = "https://omg10.com/4/11726782";
+  // ===========================================
+
+  document.getElementById('continueBtn').href = CONTINUE_LINK;
+  document.getElementById('closeBtn').href = CLOSE_LINK;
+
+  // Countdown mundur dari 2 hari 23 jam 59 menit 59 detik
+  let totalSeconds = (2*86400) + (23*3600) + (59*60) + 59;
+
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+
+  function pad(n){ return n.toString().padStart(2,'0'); }
+
+  function tick(){
+    if(totalSeconds > 0) totalSeconds--;
+    const d = Math.floor(totalSeconds / 86400);
+    const h = Math.floor((totalSeconds % 86400) / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+    daysEl.textContent = pad(d);
+    hoursEl.textContent = pad(h);
+    minutesEl.textContent = pad(m);
+    secondsEl.textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Klik tombol tercatat lalu redirect (opsional: bisa dipakai untuk tracking)
+  document.getElementById('continueBtn').addEventListener('click', function(){
+    // contoh: window.open / redirect langsung sudah otomatis lewat href
+  });
+</script>
+</body>
+</html>
