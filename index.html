@@ -54,7 +54,7 @@
             font-size: 12px;
             padding: 8px;
             text-align: center;
-            border-bottom: 2px solid #ff5500;
+            border-bottom: 1px solid #333; /* Diubah agar menyatu dengan ticker */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -74,6 +74,44 @@
             50% { opacity: 0.4; box-shadow: none; }
             100% { opacity: 1; box-shadow: 0 0 5px #00ff00; }
         }
+
+        /* --- START NEW WINNER TICKER CSS (Bukti Pemenang Running) --- */
+        .winner-ticker {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #00e676; /* Warna hijau sukses */
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 2px solid #ff5500;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 25s linear infinite; /* Kecepatan jalan teks */
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .winner-item {
+            display: inline-block;
+            margin-right: 35px; /* Jarak antar nama pemenang */
+        }
+        
+        .winner-item span {
+            color: #ffd700; /* Warna diamond emas/kuning */
+            font-weight: bold;
+        }
+
+        .winner-item b {
+            color: #fff;
+        }
+        /* --- END NEW WINNER TICKER CSS --- */
 
         /* Dynamic Banner */
         .banner {
@@ -329,8 +367,9 @@
 
     </style>
     
-    <!-- MASUKKAN SCRIPT POPUNDER ANDA DI SINI -->
+    <!-- MASUKKAN SCRIPT POPUNDER ANDA DI SINI NANTI JIKA INGIN MENGGANTI -->
 
+    <!-- SCRIPT POPUNDER ANDA DI BAWAH INI TETAP AMAN -->
     <script>(function(s){s.dataset.zone='11729147',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     
 </head>
@@ -347,6 +386,20 @@
             <div class="pulse"></div>
             <span>Server Status: <b>Online</b> | Pings: 24ms</span>
         </div>
+
+        <!-- --- START NEW WINNER TICKER HTML (Tulisan Berjalan) --- -->
+        <div class="winner-ticker">
+            <div class="ticker-text">
+                <div class="winner-item">🎉 <b>AlexxPro</b> (ID: 231***458) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>DarkKnight</b> (ID: 874***122) just won <span>720 💎</span></div>
+                <div class="winner-item">🎉 <b>Sarah_FF</b> (ID: 992***331) just won <span>2180 💎</span></div>
+                <div class="winner-item">🎉 <b>Venum_99</b> (ID: 112***904) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>GamerBoy_US</b> (ID: 541***776) just won <span>720 💎</span></div>
+                <div class="winner-item">🎉 <b>Luka_Magic</b> (ID: 334***819) just won <span>2180 💎</span></div>
+                <div class="winner-item">🎉 <b>GhostRider</b> (ID: 765***223) just won <span>1450 💎</span></div>
+            </div>
+        </div>
+        <!-- --- END NEW WINNER TICKER HTML --- -->
 
         <!-- Dynamic Banner -->
         <div class="banner">
@@ -484,6 +537,7 @@
 
         // Trigger Smartlink Mainstream
         function triggerSmartlink() {
+            // LINK SMARTLINK ANDA DI BAWAH INI TETAP AMAN
             const SMARTLINK_MAINSTREAM = "https://omg10.com/4/11729148"; 
             window.location.href = SMARTLINK_MAINSTREAM;
         }
