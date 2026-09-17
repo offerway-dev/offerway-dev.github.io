@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garena Free Fire - Weekly Diamond Giveaway</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px; 
+            background-color: #1e1e1e;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #ff9900 0%, #ff5500 100%);
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        /* Live Status Bar */
+        .live-status {
+            background-color: #111;
+            color: #ccc;
+            font-size: 12px;
+            padding: 8px;
+            text-align: center;
+            border-bottom: 2px solid #ff5500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse {
+            width: 10px;
+            height: 10px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; box-shadow: 0 0 5px #00ff00; }
+            50% { opacity: 0.4; box-shadow: none; }
+            100% { opacity: 1; box-shadow: 0 0 5px #00ff00; }
+        }
+
+        /* New Dynamic Banner */
+        .banner {
+            width: 100%;
+            height: 200px;
+            /* Menggunakan gambar Alok yang stabil + overlay gelap */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('https://w0.peakpx.com/wallpaper/553/981/HD-wallpaper-alok-ff-alok-freefire.jpg');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 3px solid #ff5500;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .banner-title {
+            color: #ffd700;
+            font-size: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 5px #000;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .badge-safe {
+            background-color: rgba(0, 200, 83, 0.2);
+            border: 1px solid #00c853;
+            color: #00e676;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 200, 83, 0.3);
+        }
+
+        .stock-text {
+            color: #fff;
+            font-size: 13px;
+            margin-top: 12px;
+            background: rgba(255, 85, 0, 0.8);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 25px 20px;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 17px;
+            margin-bottom: 20px;
+            color: #ff9900;
+            font-weight: 600;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .form-group input:focus {
+            border-color: #ff9900;
+        }
+
+        /* Diamond Select */
+        .diamond-select {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .diamond-option {
+            flex: 1;
+            background-color: #2a2a2a;
+            border: 2px solid #444;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .diamond-option.active {
+            border-color: #ff9900;
+            background-color: rgba(255, 153, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 153, 0, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(to right, #ff9900, #ff5500);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(255, 85, 0, 0.4);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Other Offers Section */
+        .other-offers {
+            padding: 0 20px 30px 20px;
+        }
+
+        .offer-title {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .offer-btn {
+            display: block;
+            width: 100%;
+            background-color: #252525;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            text-align: center;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .offer-btn:hover {
+            background-color: #333;
+        }
+
+        /* Processing Overlay */
+        .processing-overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(18, 18, 18, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #ff9900;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .checkmark {
+            display: none;
+            font-size: 60px;
+            color: #00e676;
+            margin-bottom: 15px;
+            animation: scaleUp 0.5s ease-in-out;
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        .process-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff9900;
+            margin-bottom: 10px;
+        }
+        
+        .step-text {
+            font-size: 15px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        
+        .close-overlay-btn {
+            display: none;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background-color: #ff5500;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert-box {
+            display: none;
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #ff5252;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-align: center;
+            border: 1px solid #ff5252;
+        }
+
+    </style>
+    <!-- MONETAG POPUNDER SCRIPT (Ranjau 1) -->
+    <script>(function(s){s.dataset.zone='11754735',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header">
+            <h1>Diamond Giveaway</h1>
+        </div>
+        
+        <!-- Live Server Status Bar -->
+        <div class="live-status">
+            <div class="pulse"></div>
+            <span>Server Status: <b>Online</b> | Pings: 24ms</span>
+        </div>
+
+        <!-- Dynamic Banner -->
+        <div class="banner">
+            <div class="banner-title">🔥 BOOYAH PASS SEASON 🔥</div>
+            <div class="badge-safe">🛡️ 100% SAFE & ANTI-BAN</div>
+            <div class="stock-text">Only 128 Prize Packages Left!</div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-title">Enter Giveaway Registration</div>
+            
+            <div class="alert-box" id="error-alert">⚠️ Please enter a valid Player ID!</div>
+
+            <div class="form-group">
+                <label for="ff-id">Player ID (Numbers Only)</label>
+                <input type="number" id="ff-id" placeholder="Ex: 123456789" required>
+            </div>
+
+            <div class="form-group">
+                <label>Select Diamond Pool</label>
+                <div class="diamond-select">
+                    <div class="diamond-option active" onclick="selectDiamond(this)">
+                        <div style="font-size: 24px;">💎</div>
+                        <div style="font-weight: bold; margin-top: 5px;">720</div>
+                    </div>
+                    <div class="diamond-option" onclick="selectDiamond(this)">
+                        <div style="font-size: 24px;">💎</div>
+                        <div style="font-weight: bold; margin-top: 5px;">1450</div>
+                    </div>
+                    <div class="diamond-option" onclick="selectDiamond(this)">
+                        <div style="font-size: 24px;">💎</div>
+                        <div style="font-weight: bold; margin-top: 5px;">2180</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Submit (Jebakan Processing) -->
+            <button class="submit-btn" onclick="startProcess()">CLAIM REWARD NOW</button>
+        </div>
+
+        <div class="other-offers">
+            <div class="offer-title">Check Out Other Events Below</div>
+            
+            <!-- Tombol Linktree (Jebakan Smartlink) -->
+            <a href="javascript:void(0);" onclick="triggerSmartlink()" class="offer-btn">
+                <span>🎁 Special Redeem Codes Today</span>
+            </a>
+            <a href="javascript:void(0);" onclick="triggerSmartlink()" class="offer-btn">
+                <span>⚙️ Pro Player Auto-Aim Settings</span>
+            </a>
+            <a href="javascript:void(0);" onclick="triggerSmartlink()" class="offer-btn">
+                <span>🎮 Join Elite Players Discord</span>
+            </a>
+        </div>
+
+        <!-- Fake Processing Screen -->
+        <div class="processing-overlay" id="processing-screen">
+            <div class="spinner" id="loading-spinner"></div>
+            <div class="checkmark" id="success-check">✓</div>
+            <div class="process-text" id="status-text">Connecting to Server...</div>
+            <div class="step-text" id="detail-text">Searching for Player ID...</div>
+            <button class="close-overlay-btn" id="close-overlay" onclick="closeOverlay()">CONTINUE</button>
+        </div>
+
+    </div>
+
+    <script>
+        // UI Interaction for Diamond Selection
+        function selectDiamond(element) {
+            document.querySelectorAll('.diamond-option').forEach(el => {
+                el.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Close Overlay function
+        function closeOverlay() {
+            document.getElementById('processing-screen').style.display = 'none';
+        }
+
+        // Fake Processing Logic
+        function startProcess() {
+            const playerId = document.getElementById('ff-id').value;
+            const alertBox = document.getElementById('error-alert');
+
+            // Validasi Input ID
+            if (!playerId || playerId.length < 5) {
+                alertBox.style.display = 'block';
+                return;
+            }
+            alertBox.style.display = 'none';
+
+            // Elements
+            const processScreen = document.getElementById('processing-screen');
+            const statusText = document.getElementById('status-text');
+            const detailText = document.getElementById('detail-text');
+            const spinner = document.getElementById('loading-spinner');
+            const checkmark = document.getElementById('success-check');
+            const closeBtn = document.getElementById('close-overlay');
+            
+            // Reset UI state
+            spinner.style.display = 'block';
+            checkmark.style.display = 'none';
+            closeBtn.style.display = 'none';
+            statusText.style.color = '#ff9900';
+            
+            processScreen.style.display = 'flex';
+
+            // Step 1
+            setTimeout(() => {
+                statusText.innerText = "Account Found!";
+                detailText.innerText = `Registering ID: ${playerId} to the system...`;
+            }, 1500);
+
+            // Step 2
+            setTimeout(() => {
+                statusText.innerText = "Securing Raffle Ticket...";
+                detailText.innerText = "Generating your unique entry code...";
+            }, 3000);
+
+            // Step 3 - SUCCESS
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                checkmark.style.display = 'block';
+                closeBtn.style.display = 'block'; 
+                
+                statusText.innerText = "SUCCESSFUL!";
+                statusText.style.color = "#00e676";
+                
+                detailText.innerText = "Good Luck! Winners will be notified via In-Game Mail. Check out our other exclusive events below!";
+                detailText.style.color = "#fff"; 
+                
+            }, 4500);
+        }
+
+        // Trigger Smartlink Mainstream
+        function triggerSmartlink() {
+            const SMARTLINK_MAINSTREAM = "https://omg10.com/4/11754740"; 
+            window.location.href = SMARTLINK_MAINSTREAM;
+        }
+    </script>
+</body>
+</html>
