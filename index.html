@@ -54,7 +54,7 @@
             font-size: 12px;
             padding: 8px;
             text-align: center;
-            border-bottom: 1px solid #333; /* Diubah agar menyatu dengan ticker */
+            border-bottom: 1px solid #333; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -75,7 +75,7 @@
             100% { opacity: 1; box-shadow: 0 0 5px #00ff00; }
         }
 
-        /* --- START NEW WINNER TICKER CSS (Bukti Pemenang Running) --- */
+        /* WINNER TICKER CSS (Tulisan Berjalan) */
         .winner-ticker {
             background-color: rgba(0, 0, 0, 0.9);
             color: #00e676; /* Warna hijau sukses */
@@ -90,7 +90,8 @@
         .ticker-text {
             display: inline-block;
             padding-left: 100%;
-            animation: marquee 25s linear infinite; /* Kecepatan jalan teks */
+            /* Kecepatan disesuaikan (60s) agar 20 nama terbaca nyaman */
+            animation: marquee 60s linear infinite; 
         }
 
         @keyframes marquee {
@@ -100,7 +101,7 @@
 
         .winner-item {
             display: inline-block;
-            margin-right: 35px; /* Jarak antar nama pemenang */
+            margin-right: 40px; /* Jarak antar nama pemenang */
         }
         
         .winner-item span {
@@ -111,7 +112,6 @@
         .winner-item b {
             color: #fff;
         }
-        /* --- END NEW WINNER TICKER CSS --- */
 
         /* Dynamic Banner */
         .banner {
@@ -367,9 +367,7 @@
 
     </style>
     
-    <!-- MASUKKAN SCRIPT POPUNDER ANDA DI SINI NANTI JIKA INGIN MENGGANTI -->
-
-    <!-- SCRIPT POPUNDER ANDA DI BAWAH INI TETAP AMAN -->
+    <!-- KODE POPUNDER ANDA DI BAWAH INI TETAP AMAN -->
     <script>(function(s){s.dataset.zone='11729147',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     
 </head>
@@ -381,25 +379,37 @@
             <h1>Diamond Giveaway</h1>
         </div>
         
-        <!-- Live Server Status Bar -->
+        <!-- Live Status Bar -->
         <div class="live-status">
             <div class="pulse"></div>
             <span>Server Status: <b>Online</b> | Pings: 24ms</span>
         </div>
 
-        <!-- --- START NEW WINNER TICKER HTML (Tulisan Berjalan) --- -->
+        <!-- WINNER TICKER HTML (Tulisan Berjalan - SEKARANG 20 PEMENANG) -->
         <div class="winner-ticker">
             <div class="ticker-text">
                 <div class="winner-item">🎉 <b>AlexxPro</b> (ID: 231***458) just won <span>1450 💎</span></div>
-                <div class="winner-item">🎉 <b>DarkKnight</b> (ID: 874***122) just won <span>720 💎</span></div>
+                <div class="winner-item">🎉 <b>El_Nino</b> (ID: 554***112) just won <span>720 💎</span></div>
                 <div class="winner-item">🎉 <b>Sarah_FF</b> (ID: 992***331) just won <span>2180 💎</span></div>
-                <div class="winner-item">🎉 <b>Venum_99</b> (ID: 112***904) just won <span>1450 💎</span></div>
-                <div class="winner-item">🎉 <b>GamerBoy_US</b> (ID: 541***776) just won <span>720 💎</span></div>
-                <div class="winner-item">🎉 <b>Luka_Magic</b> (ID: 334***819) just won <span>2180 💎</span></div>
-                <div class="winner-item">🎉 <b>GhostRider</b> (ID: 765***223) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>Sultan_Indo</b> (ID: 110***887) just won <span>2180 💎</span></div>
+                <div class="winner-item">🎉 <b>Venom_99</b> (ID: 887***404) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>GamerBoy_US</b> (ID: 334***776) just won <span>720 💎</span></div>
+                <div class="winner-item">🎉 <b>Bocil_Kematian</b> (ID: 900***123) just won <span>720 💎</span></div>
+                <div class="winner-item">🎉 <b>Rafa_Brasil🇧🇷</b> (ID: 765***223) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>sholin</b> (ID: 101***999) just won <span>2180 💎</span></div>
+                <div class="winner-item">🎉 <b>ᴮᴼᴼᵞᴬᴴ Pass</b> (ID: 223***665) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>Mister_</b> (ID: 556***711) just won <span>720 💎</span></div>
+                <div class="winner-item">🎉 <b>Queen_FF</b> (ID: 889***332) just won <span>2180 💎</span></div>
+                <div class="winner-item">🎉 <b>GhostRider</b> (ID: 114***009) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>FF_Master</b> (ID: 988***443) just won <span>2180 💎</span></div>
+                <div class="winner-item">🎉 <b>Shadow</b> (ID: 771***882) just won <span>720 💎</span></div>
+                <div class="winner-item">🎉 <b>Luka_Magic🇺🇸</b> (ID: 445***119) just won <span>2180 💎</span></div>
+                <div class="winner-item">🎉 <b>Ninja_</b> (ID: 667***990) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>Dino_Rex</b> (ID: 881***554) just won <span>720 💎</span></div>
+                <div class="winner-item">🎉 <b>Alok_Lover</b> (ID: 109***332) just won <span>1450 💎</span></div>
+                <div class="winner-item">🎉 <b>Sniper_</b> (ID: 339***118) just won <span>2180 💎</span></div>
             </div>
         </div>
-        <!-- --- END NEW WINNER TICKER HTML --- -->
 
         <!-- Dynamic Banner -->
         <div class="banner">
