@@ -1,247 +1,176 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html lang="id">
 <head>
-  <meta charset='UTF-8'/>
-  <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
-  <title>FF Booyah Hub | Sensitivitas, HUD, &amp; Info Event Terbaru</title>
-  <meta content='Dapatkan settingan sensitivitas auto headshot, rekomendasi HUD pro player, dan update bocoran event serta kode redeem Free Fire terbaru.' name='description'/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FF Booyah Hub | Sensitivitas, HUD, & Info Event</title>
   
-  <b:skin><![CDATA[
-  @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Nunito:wght@400;600;800&display=swap');
-
-  :root {
-    --bg-main: #0B0E14;
-    --bg-card: #151A22;
-    --bg-card-hover: #1E2530;
-    --primary: #FFB800; /* FF Yellow */
-    --secondary: #FF5C00; /* FF Orange */
-    --text-light: #F3F4F6;
-    --text-muted: #9CA3AF;
-    --border: #2A3241;
-    --success: #10B981;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Nunito', sans-serif; background: var(--bg-main); color: var(--text-light); line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+  <!-- ========================================== -->
+  <!-- TEMPEL SCRIPT POPUNDER MONETAG DI BAWAH INI -->
+  <!-- ========================================== -->
+  <!-- <script src="..."></script> -->
   
-  /* HEADER & NAV */
-  header { background: rgba(21, 26, 34, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; }
-  .header-content { max-width: 680px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-family: 'Teko', sans-serif; font-size: 28px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
-  .logo span { color: var(--text-light); }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Nunito:wght@400;600;800&display=swap');
 
-  /* CONTAINER */
-  .container { max-width: 680px; margin: 0 auto; padding: 30px 20px 80px; }
-  
-  h1, h2, h3 { font-family: 'Teko', sans-serif; line-height: 1.1; text-transform: uppercase; }
-  h1 { font-size: 42px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
-  .lead { color: var(--text-muted); font-size: 16px; margin-bottom: 25px; }
+    :root {
+      --bg-main: #0B0E14;
+      --bg-card: #151A22;
+      --primary: #FFB800; 
+      --secondary: #FF5C00; 
+      --text-light: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --border: #2A3241;
+      --success: #10B981;
+    }
 
-  /* TABS NAVIGATION */
-  .tabs { display: flex; gap: 10px; margin-bottom: 25px; background: var(--bg-card); padding: 8px; border-radius: 12px; overflow-x: auto; scrollbar-width: none; }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab-btn { flex: 1; min-width: 120px; background: transparent; border: none; padding: 12px 15px; color: var(--text-muted); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; }
-  .tab-btn.active { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #000; box-shadow: 0 4px 15px rgba(255, 92, 0, 0.3); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg-main); color: var(--text-light); line-height: 1.6; }
+    
+    header { background: rgba(21, 26, 34, 0.95); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .header-content { max-width: 680px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Teko', sans-serif; font-size: 28px; font-weight: 700; color: var(--primary); }
+    .logo span { color: var(--text-light); }
 
-  /* TAB CONTENT */
-  .tab-content { display: none; animation: fadeIn 0.4s ease; }
-  .tab-content.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .container { max-width: 680px; margin: 0 auto; padding: 30px 20px 80px; }
+    h1, h2, h3 { font-family: 'Teko', sans-serif; text-transform: uppercase; line-height: 1.1; }
+    h1 { font-size: 42px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+    .lead { color: var(--text-muted); font-size: 16px; margin-bottom: 25px; }
 
-  /* CARD & GENERATOR */
-  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
-  .card h2 { font-size: 28px; color: var(--text-light); margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 12px; }
-  
-  /* SENSITIVITY FORM */
-  .form-group { margin-bottom: 20px; }
-  .form-group label { display: block; font-weight: 800; margin-bottom: 10px; color: var(--primary); }
-  .radio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .radio-btn { position: relative; }
-  .radio-btn input { position: absolute; opacity: 0; }
-  .radio-btn span { display: block; text-align: center; background: var(--bg-main); border: 2px solid var(--border); padding: 12px 5px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; color: var(--text-muted); }
-  .radio-btn input:checked + span { border-color: var(--primary); color: var(--primary); background: rgba(255, 184, 0, 0.1); }
-  
-  .btn-action { display: block; width: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); color: #000; border: none; padding: 16px; border-radius: 12px; font-family: 'Teko', sans-serif; font-size: 24px; text-transform: uppercase; cursor: pointer; transition: transform 0.2s; }
-  .btn-action:active { transform: scale(0.98); }
+    .tabs { display: flex; gap: 10px; margin-bottom: 25px; background: var(--bg-card); padding: 8px; border-radius: 12px; overflow-x: auto; scrollbar-width: none; }
+    .tab-btn { flex: 1; min-width: 120px; background: transparent; border: none; padding: 12px 15px; color: var(--text-muted); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+    .tab-btn.active { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #000; }
 
-  /* RESULT SLIDERS */
-  .result-box { display: none; margin-top: 25px; background: #0B0E14; padding: 20px; border-radius: 12px; border: 1px dashed var(--primary); }
-  .result-box.show { display: block; }
-  .slider-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
-  .slider-name { font-weight: 600; width: 90px; font-size: 14px; }
-  .slider-track { flex: 1; height: 8px; background: var(--border); border-radius: 5px; margin: 0 15px; position: relative; overflow: hidden; }
-  .slider-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--primary); width: 0; transition: width 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .slider-val { font-family: 'Teko', sans-serif; font-size: 22px; color: var(--primary); width: 40px; text-align: right; }
+    .tab-content { display: none; animation: fadeIn 0.4s ease; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* EVENT & REDEEM SECTION */
-  .event-item { display: flex; gap: 15px; align-items: center; padding: 15px; background: var(--bg-main); border-radius: 12px; margin-bottom: 12px; border: 1px solid var(--border); }
-  .event-date { background: rgba(255, 92, 0, 0.1); color: var(--secondary); padding: 10px; border-radius: 8px; text-align: center; min-width: 65px; }
-  .event-date .day { font-family: 'Teko', sans-serif; font-size: 26px; line-height: 1; }
-  .event-date .month { font-size: 12px; font-weight: 700; text-transform: uppercase; }
-  .event-info h4 { font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800; margin-bottom: 5px; }
-  .event-info p { font-size: 13px; color: var(--text-muted); }
-  
-  .redeem-box { text-align: center; background: #0B0E14; padding: 20px; border-radius: 12px; border: 1px dashed var(--success); margin-top: 15px; }
-  .redeem-code { font-family: monospace; font-size: 24px; color: var(--success); letter-spacing: 3px; font-weight: bold; background: rgba(16, 185, 129, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0; display: inline-block; }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
+    .card h2 { font-size: 28px; margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 12px; }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 800; margin-bottom: 10px; color: var(--primary); }
+    .radio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .radio-btn { position: relative; }
+    .radio-btn input { position: absolute; opacity: 0; }
+    .radio-btn span { display: block; text-align: center; border: 2px solid var(--border); padding: 12px 5px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--text-muted); }
+    .radio-btn input:checked + span { border-color: var(--primary); color: var(--primary); background: rgba(255, 184, 0, 0.1); }
+    
+    .btn-action { display: block; width: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); color: #000; border: none; padding: 16px; border-radius: 12px; font-family: 'Teko', sans-serif; font-size: 24px; cursor: pointer; }
+    
+    /* Tombol Smartlink Khusus */
+    .btn-smartlink { display: block; width: 100%; background: #10B981; color: #fff; text-align: center; text-decoration: none; padding: 16px; border-radius: 12px; font-family: 'Teko', sans-serif; font-size: 24px; margin-top: 15px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
 
-  /* NATIVE AD SLOT */
-  .ad-native { background: var(--bg-card); border: 1px dashed var(--text-muted); border-radius: 12px; padding: 15px; margin: 25px 0; text-align: center; position: relative; }
-  .ad-label { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--bg-main); padding: 0 10px; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .result-box { display: none; margin-top: 25px; padding: 20px; border-radius: 12px; border: 1px dashed var(--primary); }
+    .result-box.show { display: block; }
+    .slider-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+    .slider-name { font-weight: 600; width: 90px; font-size: 14px; }
+    .slider-track { flex: 1; height: 8px; background: var(--border); border-radius: 5px; margin: 0 15px; position: relative; }
+    .slider-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--primary); width: 0; transition: width 1s; }
+    .slider-val { font-family: 'Teko', sans-serif; font-size: 22px; color: var(--primary); width: 40px; text-align: right; }
 
-  /* HUD SECTION */
-  .hud-list li { margin-bottom: 12px; padding-left: 25px; position: relative; color: var(--text-muted); }
-  .hud-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
-  
-  footer { text-align: center; padding: 30px 20px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 14px; }
-  ]]></b:skin>
+    .event-item { display: flex; gap: 15px; padding: 15px; border-radius: 12px; margin-bottom: 12px; border: 1px solid var(--border); }
+    .event-date { background: rgba(255, 92, 0, 0.1); color: var(--secondary); padding: 10px; border-radius: 8px; text-align: center; min-width: 65px; }
+    .event-date .day { font-family: 'Teko', sans-serif; font-size: 26px; line-height: 1; }
+    .event-info h4 { font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800; }
+    .redeem-box { text-align: center; padding: 20px; border-radius: 12px; border: 1px dashed var(--success); margin-top: 15px; }
+    .redeem-code { font-family: monospace; font-size: 24px; color: var(--success); background: rgba(16, 185, 129, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0; display: inline-block; }
+  </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <header>
     <div class="header-content">
       <div class="logo">FF <span>HUB</span></div>
-      <div style="font-size: 12px; color: var(--text-muted); font-weight: bold;">v2026.4</div>
     </div>
   </header>
 
   <div class="container">
     <h1>Portal Pro Player</h1>
-    <p class="lead">Tingkatkan gameplay-mu! Dari settingan auto-headshot, racikan HUD, hingga bocoran event &amp; kode redeem terbaru.</p>
+    <p class="lead">Dapatkan settingan auto-headshot, racikan HUD, hingga event terbaru.</p>
 
-    <!-- TABS MENU -->
     <div class="tabs">
       <button class="tab-btn active" onclick="openTab('sensi', this)">⚙️ SENSITIVITAS</button>
       <button class="tab-btn" onclick="openTab('hud', this)">🖐️ CUSTOM HUD</button>
       <button class="tab-btn" onclick="openTab('event', this)">🎁 INFO EVENT</button>
     </div>
 
-    <!-- TAB 1: SENSITIVITAS (DENGAN KALKULATOR) -->
+    <!-- TAB 1: SENSITIVITAS -->
     <div id="sensi" class="tab-content active">
       <div class="card">
         <h2>Kalkulator Anti-Miss</h2>
-        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 14px;">Masukkan spek HP dan gaya mainmu, sistem akan meracik angka sensitivitas paling stabil.</p>
         
         <div class="form-group">
           <label>1. Ukuran Layar HP</label>
           <div class="radio-grid">
-            <label class="radio-btn"><input type="radio" name="layar" value="kecil"/><span>Kecil<br/><small>(&lt; 6.3")</small></span></label>
-            <label class="radio-btn"><input type="radio" name="layar" value="sedang" checked="checked"/><span>Sedang<br/><small>(6.3 - 6.7")</small></span></label>
-            <label class="radio-btn"><input type="radio" name="layar" value="besar"/><span>Besar<br/><small>(Tablet/iPad)</small></span></label>
+            <label class="radio-btn"><input type="radio" name="layar" value="kecil"/><span>Kecil</span></label>
+            <label class="radio-btn"><input type="radio" name="layar" value="sedang" checked/><span>Sedang</span></label>
+            <label class="radio-btn"><input type="radio" name="layar" value="besar"/><span>Tablet</span></label>
           </div>
         </div>
 
         <div class="form-group">
           <label>2. Gaya Bermain</label>
           <div class="radio-grid">
-            <label class="radio-btn"><input type="radio" name="gaya" value="rusher" checked="checked"/><span>Rusher<br/><small>(SG/SMG)</small></span></label>
-            <label class="radio-btn"><input type="radio" name="gaya" value="support"/><span>Support<br/><small>(AR/Rifle)</small></span></label>
-            <label class="radio-btn"><input type="radio" name="gaya" value="sniper"/><span>Sniper<br/><small>(AWM/Kar)</small></span></label>
+            <label class="radio-btn"><input type="radio" name="gaya" value="rusher" checked/><span>Rusher</span></label>
+            <label class="radio-btn"><input type="radio" name="gaya" value="support"/><span>Support</span></label>
+            <label class="radio-btn"><input type="radio" name="gaya" value="sniper"/><span>Sniper</span></label>
           </div>
         </div>
 
         <button class="btn-action" onclick="generateSensi()">Generate Settingan 🔥</button>
 
-        <!-- HASIL GENERATE -->
         <div class="result-box" id="result-sensi">
-          <p style="text-align: center; color: var(--primary); font-weight: bold; margin-bottom: 15px;">Target Terkunci! Salin angka ini:</p>
+          <p style="text-align: center; color: var(--primary); font-weight: bold; margin-bottom: 15px;">Salin angka ini:</p>
           <div id="sliders-container"></div>
-          <p style="font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 15px;">*Gunakan angka ini sebagai patokan dasar. Naik-turunkan 2-3 angka saat di Training Ground agar pas dengan jari.</p>
-        </div>
-      </div>
-
-      <!-- SLOT IKLAN NATIVE 1 -->
-      <div class="ad-native">
-        <span class="ad-label">Sponsored Content</span>
-        <div id="native-ad-1" style="min-height: 80px; display:flex; align-items:center; justify-content:center;">
-          <!-- TEMPEL SCRIPT ADSTERRA DI SINI -->
-          <span style="color: #666; font-size:12px;">(Adsterra Banner Script Here)</span>
+          
+          <!-- TOMBOL SMARTLINK MONETAG -->
+          <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">🔓 BUKA KUNCI FITUR VIP</a>
         </div>
       </div>
     </div>
 
-    <!-- TAB 2: CUSTOM HUD -->
+    <!-- TAB 2: HUD -->
     <div id="hud" class="tab-content">
       <div class="card">
         <h2>Rekomendasi HUD Pro</h2>
-        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Posisi tombol sama pentingnya dengan sensitivitas. Pilih sesuai kenyamanan jarimu.</p>
+        <h3 style="color: var(--primary); font-size: 20px; margin-bottom: 10px;">✌️ HUD 2 Jari</h3>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">Sembunyikan tombol tembak kiri. Ukuran tombol tembak kanan 45-55%.</p>
         
-        <h3 style="color: var(--primary); font-size: 22px; margin-bottom: 10px;">✌️ HUD 2 Jari (Classic Rusher)</h3>
-        <ul class="hud-list" style="margin-bottom: 20px;">
-          <li><strong>Tombol Tembak Kiri:</strong> Sembunyikan. Fokus pada tombol tembak kanan.</li>
-          <li><strong>Ukuran Tombol Tembak Kanan:</strong> 45% - 55%. Jangan terlalu besar agar mudah ditarik ke atas (Drag Headshot).</li>
-          <li><strong>Tombol Gloo Wall:</strong> Taruh di kiri tengah (ukuran 80%). Akses cepat dengan jempol kiri.</li>
-        </ul>
+        <h3 style="color: var(--primary); font-size: 20px; margin-bottom: 10px;">🤟 HUD 3 Jari</h3>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">Tombol tembak kiri selalu aktif di pojok kiri atas. Tombol gloo wall di kiri tengah.</p>
 
-        <h3 style="color: var(--primary); font-size: 22px; margin-bottom: 10px;">🤟 HUD 3 Jari (Fast Movement)</h3>
-        <ul class="hud-list">
-          <li><strong>Tombol Tembak Kiri:</strong> Selalu Aktif. Pindahkan ke pojok kiri atas (ditekan telunjuk kiri).</li>
-          <li><strong>Keuntungan:</strong> Bisa pasang Gloo Wall sambil lari (Telunjuk tembak gloo wall, jempol kanan geser layar).</li>
-          <li><strong>Tombol Loncat:</strong> Pindahkan agak ke tengah atas kanan agar responsif saat *jump shoot*.</li>
-        </ul>
-      </div>
-
-      <!-- SLOT IKLAN NATIVE 2 -->
-      <div class="ad-native">
-        <span class="ad-label">Advertisement</span>
-        <div id="native-ad-2" style="min-height: 80px; display:flex; align-items:center; justify-content:center;">
-          <!-- TEMPEL SCRIPT ADSTERRA DI SINI -->
-          <span style="color: #666; font-size:12px;">(Adsterra Banner Script Here)</span>
-        </div>
+        <!-- TOMBOL SMARTLINK MONETAG -->
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">📥 DOWNLOAD LAYOUT HUD</a>
       </div>
     </div>
 
-    <!-- TAB 3: EVENT & REDEEM -->
+    <!-- TAB 3: EVENT -->
     <div id="event" class="tab-content">
       <div class="card">
-        <h2>Radar Event &amp; Bocoran</h2>
-        
+        <h2>Radar Event & Redeem</h2>
         <div class="event-item">
           <div class="event-date"><div class="day">19</div><div class="month">SEP</div></div>
           <div class="event-info">
-            <h4 style="color: var(--text-light);">Mistery Shop Spesial</h4>
-            <p>Diskon hingga 90% untuk Elite Pass &amp; Bundle eksklusif. Siapkan diamond-mu!</p>
-          </div>
-        </div>
-        
-        <div class="event-item">
-          <div class="event-date"><div class="day">22</div><div class="month">SEP</div></div>
-          <div class="event-info">
-            <h4 style="color: var(--text-light);">Top-Up Bonus 100%</h4>
-            <p>Event rahasia akhir bulan. Top up berapapun dapat bonus diamond ganda.</p>
+            <h4>Mistery Shop Spesial</h4>
+            <p style="font-size: 13px; color: var(--text-muted);">Diskon hingga 90% Elite Pass.</p>
           </div>
         </div>
 
         <div class="redeem-box">
-          <h3 style="color: var(--text-light); font-size: 20px;">KODE REDEEM HARI INI</h3>
-          <p style="font-size: 13px; color: var(--text-muted);">Status: <span style="color: var(--success);">Aktif</span> (Tersisa 1.400 kuota)</p>
+          <h3>KODE REDEEM HARI INI</h3>
           <div class="redeem-code">FF26-PRO9-X8A2</div>
-          <p style="font-size: 12px; color: var(--text-muted); margin-top: 10px;">*Tukarkan segera di reward.ff.garena.com sebelum batas waktu habis.</p>
         </div>
-      </div>
 
-      <!-- SLOT IKLAN NATIVE 3 -->
-      <div class="ad-native">
-        <span class="ad-label">Partner Links</span>
-        <div id="native-ad-3" style="min-height: 80px; display:flex; align-items:center; justify-content:center;">
-          <!-- TEMPEL SCRIPT ADSTERRA DI SINI -->
-          <span style="color: #666; font-size:12px;">(Adsterra Banner Script Here)</span>
-        </div>
+        <!-- TOMBOL SMARTLINK MONETAG -->
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">🎁 KLAIM REWARD SEKARANG</a>
       </div>
     </div>
 
   </div>
 
-  <footer>
-    <p>Situs ini adalah portal komunitas dan tidak berafiliasi resmi dengan Garena.</p>
-    <p style="margin-top: 5px;">&copy; 2026 FF Booyah Hub. All rights reserved.</p>
-  </footer>
-
-  <!-- SCRIPT LOGIKA BUNGKUS CDATA -->
-  <script type="text/javascript">
-  //<![CDATA[
-    // FUNGSI TAB
+  <script>
     function openTab(tabId, btnElement) {
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -249,47 +178,25 @@
       btnElement.classList.add('active');
     }
 
-    // FUNGSI KALKULATOR SENSITIVITAS
     const baseSensi = { general: 95, reddot: 90, x2: 85, x4: 80, sniper: 60, free: 75 };
     const namaSensi = [
-      { id: 'general', label: 'Lihat Sekeliling' },
-      { id: 'reddot', label: 'Red Dot Sight' },
-      { id: 'x2', label: '2x Scope' },
-      { id: 'x4', label: '4x Scope' },
-      { id: 'sniper', label: 'Sniper Scope' },
-      { id: 'free', label: 'Free Look' }
+      { id: 'general', label: 'Sekeliling' }, { id: 'reddot', label: 'Red Dot' },
+      { id: 'x2', label: '2x Scope' }, { id: 'x4', label: '4x Scope' },
+      { id: 'sniper', label: 'Sniper' }, { id: 'free', label: 'Free Look' }
     ];
 
-    function getRadioValue(name) {
-      const el = document.querySelector('input[name="' + name + '"]:checked');
-      return el ? el.value : '';
-    }
-
     function generateSensi() {
-      const layar = getRadioValue('layar');
-      const gaya = getRadioValue('gaya');
+      const layar = document.querySelector('input[name="layar"]:checked').value;
+      const gaya = document.querySelector('input[name="gaya"]:checked').value;
       
-      let modLayar = 0;
-      if (layar === 'kecil') modLayar = 5;  // Layar kecil butuh sensi lebih tinggi
-      if (layar === 'besar') modLayar = -10; // Tablet butuh sensi lebih rendah
-      
-      let modGaya = 0;
-      if (gaya === 'rusher') modGaya = 3;   // Rusher butuh pergerakan cepat
-      if (gaya === 'sniper') modGaya = -5;  // Sniper butuh aim tenang
+      let modLayar = layar === 'kecil' ? 5 : (layar === 'besar' ? -10 : 0);
+      let modGaya = gaya === 'rusher' ? 3 : (gaya === 'sniper' ? -5 : 0);
 
       const container = document.getElementById('sliders-container');
-      container.innerHTML = ''; // Kosongkan dulu
+      container.innerHTML = '';
 
       namaSensi.forEach(item => {
-        // Hitung nilai akhir (dibatasi 10-100)
-        let finalVal = baseSensi[item.id] + modLayar + modGaya;
-        // Pengecualian logika spesifik
-        if(item.id === 'sniper' && gaya === 'sniper') finalVal += 10; 
-        if(item.id === 'general' && gaya === 'rusher') finalVal = 100;
-
-        finalVal = Math.max(10, Math.min(100, finalVal));
-
-        // Buat elemen HTML slider
+        let finalVal = Math.max(10, Math.min(100, baseSensi[item.id] + modLayar + modGaya));
         const row = document.createElement('div');
         row.className = 'slider-row';
         row.innerHTML = `
@@ -298,25 +205,11 @@
           <div class="slider-val">${finalVal}</div>
         `;
         container.appendChild(row);
-
-        // Animasi bar slider
-        setTimeout(() => {
-          document.getElementById('fill-' + item.id).style.width = finalVal + '%';
-        }, 50);
+        setTimeout(() => { document.getElementById('fill-' + item.id).style.width = finalVal + '%'; }, 50);
       });
 
       document.getElementById('result-sensi').classList.add('show');
     }
-  //]]>
   </script>
-
-  <!-- WIDGET WAJIB BLOGGER (DISEMBUNYIKAN) -->
-  <div style='display:none;'>
-    <b:section id='dummy' showaddelement='no'>
-      <b:widget id='Blog1' locked='true' type='Blog'>
-        <b:includable id='main'></b:includable>
-      </b:widget>
-    </b:section>
-  </div>
 </body>
 </html>
