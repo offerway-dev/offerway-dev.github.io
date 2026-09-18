@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FF Booyah Hub | Sensitivitas, HUD, & Info Event</title>
+  <title>FF Booyah Hub | Pro Player Portal</title>
   
   <!-- ========================================== -->
-  <!-- TEMPEL SCRIPT POPUNDER MONETAG DI BAWAH INI -->
+  <!-- INSERT MONETAG POPUNDER SCRIPT HERE -->
   <!-- ========================================== -->
   <!-- <script src="..."></script> -->
   
@@ -71,7 +71,7 @@
     .radio-btn span { display: block; text-align: center; border: 2px solid var(--border); padding: 12px 5px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--text-muted); transition: 0.2s;}
     .radio-btn input:checked + span { border-color: var(--primary); color: var(--primary); background: rgba(255, 184, 0, 0.1); }
     
-    /* TOMBOL ACTION & SMARTLINK */
+    /* ACTION & SMARTLINK BUTTONS */
     .btn-action { display: block; width: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); color: #000; border: none; padding: 16px; border-radius: 12px; font-family: 'Teko', sans-serif; font-size: 26px; cursor: pointer; transition: 0.2s; text-transform: uppercase;}
     .btn-action:active { transform: scale(0.98); }
     
@@ -82,7 +82,7 @@
     .btn-smartlink-blue { background: #3B82F6; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
     .btn-smartlink-red { background: var(--danger); box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); }
 
-    /* HASIL SENSI */
+    /* SENSI RESULTS */
     .result-box { display: none; margin-top: 25px; padding: 20px; border-radius: 12px; border: 1px dashed var(--primary); background: rgba(0,0,0,0.2); }
     .result-box.show { display: block; }
     .slider-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
@@ -91,7 +91,7 @@
     .slider-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--primary); width: 0; transition: width 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
     .slider-val { font-family: 'Teko', sans-serif; font-size: 24px; color: var(--primary); width: 40px; text-align: right; }
 
-    /* SECTIONING (HUD, SKILL, dll) */
+    /* SECTIONING */
     .content-section { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
     .content-section:last-child { border-bottom: none; padding-bottom: 0; }
     .content-title { display: flex; align-items: center; gap: 8px; color: var(--primary); font-size: 22px; margin-bottom: 10px; }
@@ -139,36 +139,36 @@
   </header>
 
   <div class="container">
-    <h1>Portal Pro Player</h1>
-    <p class="lead">Pusat informasi terlengkap! Geser menu di bawah untuk Sensi, Nickname, HUD, Combo Skill, hingga Setting Anti-Lag.</p>
+    <h1>Pro Player Portal</h1>
+    <p class="lead">Your ultimate gaming hub! Swipe the menu below for Sensitivity, VIP Nicknames, HUD layouts, Skill Combos, and Anti-Lag settings.</p>
 
     <!-- TAB MENU -->
     <div class="tabs">
-      <button class="tab-btn active" onclick="openTab('sensi', this)">⚙️ SENSITIVITAS</button>
-      <button class="tab-btn" onclick="openTab('nick', this)">🔠 NICKNAME VIP</button>
+      <button class="tab-btn active" onclick="openTab('sensi', this)">⚙️ SENSITIVITY</button>
+      <button class="tab-btn" onclick="openTab('nick', this)">🔠 VIP NICKNAMES</button>
       <button class="tab-btn" onclick="openTab('hud', this)">🖐️ CUSTOM HUD</button>
-      <button class="tab-btn" onclick="openTab('skill', this)">🧬 COMBO SKILL</button>
+      <button class="tab-btn" onclick="openTab('skill', this)">🧬 SKILL COMBO</button>
       <button class="tab-btn" onclick="openTab('antilag', this)">🚀 ANTI-LAG</button>
-      <button class="tab-btn" onclick="openTab('event', this)">🎁 EVENT & REDEEM</button>
+      <button class="tab-btn" onclick="openTab('event', this)">🎁 EVENTS & CODES</button>
     </div>
 
-    <!-- 1. TAB SENSITIVITAS -->
+    <!-- 1. SENSITIVITY TAB -->
     <div id="sensi" class="tab-content active">
       <div class="card">
-        <h2>Kalkulator Anti-Miss</h2>
-        <p class="content-desc">Masukkan spesifikasi HP dan gaya bermainmu untuk meracik angka sensitivitas paling stabil.</p>
+        <h2>Anti-Miss Calculator</h2>
+        <p class="content-desc">Input your phone specifications and playstyle to generate the most stable sensitivity values.</p>
         
         <div class="form-group">
-          <label>1. Ukuran Layar HP</label>
+          <label>1. Screen Size</label>
           <div class="radio-grid">
-            <label class="radio-btn"><input type="radio" name="layar" value="kecil"/><span>Kecil</span></label>
-            <label class="radio-btn"><input type="radio" name="layar" value="sedang" checked/><span>Sedang</span></label>
+            <label class="radio-btn"><input type="radio" name="layar" value="kecil"/><span>Small</span></label>
+            <label class="radio-btn"><input type="radio" name="layar" value="sedang" checked/><span>Medium</span></label>
             <label class="radio-btn"><input type="radio" name="layar" value="besar"/><span>Tablet</span></label>
           </div>
         </div>
 
         <div class="form-group">
-          <label>2. Kapasitas RAM HP</label>
+          <label>2. RAM Capacity</label>
           <div class="radio-grid">
             <label class="radio-btn"><input type="radio" name="ram" value="low"/><span>2-4 GB</span></label>
             <label class="radio-btn"><input type="radio" name="ram" value="mid" checked/><span>6-8 GB</span></label>
@@ -177,7 +177,7 @@
         </div>
 
         <div class="form-group">
-          <label>3. Gaya Bermain Utama</label>
+          <label>3. Primary Playstyle</label>
           <div class="radio-grid">
             <label class="radio-btn"><input type="radio" name="gaya" value="rusher" checked/><span>Rusher</span></label>
             <label class="radio-btn"><input type="radio" name="gaya" value="support"/><span>Support</span></label>
@@ -186,33 +186,33 @@
         </div>
 
         <div class="form-group">
-          <label>4. Penggunaan DPI Tambahan?</label>
+          <label>4. Custom DPI Enabled?</label>
           <div class="radio-grid-2">
-            <label class="radio-btn"><input type="radio" name="dpi" value="no" checked/><span>Tidak (Standar)</span></label>
-            <label class="radio-btn"><input type="radio" name="dpi" value="yes"/><span>Ya (Tinggi)</span></label>
+            <label class="radio-btn"><input type="radio" name="dpi" value="no" checked/><span>No (Standard)</span></label>
+            <label class="radio-btn"><input type="radio" name="dpi" value="yes"/><span>Yes (High)</span></label>
           </div>
         </div>
 
-        <button class="btn-action" onclick="generateSensi()">Generate Settingan 🔥</button>
+        <button class="btn-action" onclick="generateSensi()">Generate Settings 🔥</button>
 
         <div class="result-box" id="result-sensi">
-          <p style="text-align: center; color: var(--primary); font-weight: bold; margin-bottom: 5px; font-size: 18px;">Target Terkunci!</p>
+          <p style="text-align: center; color: var(--primary); font-weight: bold; margin-bottom: 5px; font-size: 18px;">Target Locked!</p>
           <div id="sliders-container"></div>
           
-          <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">🔓 BUKA SETTINGAN DPI VIP</a>
+          <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">🔓 UNLOCK VIP DPI SETTINGS</a>
         </div>
       </div>
     </div>
 
-    <!-- 2. TAB NICKNAME -->
+    <!-- 2. NICKNAMES TAB -->
     <div id="nick" class="tab-content">
       <div class="card">
-        <h2>Koleksi Nickname Pro</h2>
-        <p class="content-desc">Kumpulan simbol langka yang bisa menembus sensor nama FF. <b>Ketuk untuk menyalin otomatis!</b></p>
+        <h2>Pro Nickname Collection</h2>
+        <p class="content-desc">Rare symbols that bypass FF name filters. <b>Tap any symbol to copy instantly!</b></p>
         
-        <div id="copy-toast">✅ Disalin!</div>
+        <div id="copy-toast">✅ Copied!</div>
 
-        <div class="symbol-category">Ikon Spesial & Rare</div>
+        <div class="symbol-category">Special & Rare Icons</div>
         <div class="symbol-grid">
           <div class="symbol-box" onclick="salinSimbol('☂️')">☂️</div>
           <div class="symbol-box" onclick="salinSimbol('')"></div>
@@ -228,7 +228,7 @@
           <div class="symbol-box" onclick="salinSimbol('★')">★</div>
         </div>
 
-        <div class="symbol-category">Kaomoji Jepang (Face)</div>
+        <div class="symbol-category">Japanese Kaomoji Faces</div>
         <div class="symbol-grid-large">
           <div class="symbol-box large" onclick="salinSimbol('×͜×')">×͜×</div>
           <div class="symbol-box large" onclick="salinSimbol('(ง\'̀-\'́)ง')">(ง'̀-'́)ง</div>
@@ -236,7 +236,7 @@
           <div class="symbol-box large" onclick="salinSimbol('(⌐■_■)')">(⌐■_■)</div>
         </div>
 
-        <div class="symbol-category">Tag Clan / Guild Prefix</div>
+        <div class="symbol-category">Clan / Guild Prefixes</div>
         <div class="symbol-grid-large">
           <div class="symbol-box large" onclick="salinSimbol('ＩＮＤ')">ＩＮＤ</div>
           <div class="symbol-box large" onclick="salinSimbol('ＥＸＥ')">ＥＸＥ</div>
@@ -244,195 +244,194 @@
           <div class="symbol-box large" onclick="salinSimbol('ＶＩＰ')">ＶＩＰ</div>
         </div>
 
-        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-purple">✨ GENERATE FONT KOSONG (SPASI)</a>
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-purple">✨ GENERATE EMPTY SPACE FONT</a>
       </div>
     </div>
 
-    <!-- 3. TAB HUD -->
+    <!-- 3. CUSTOM HUD TAB -->
     <div id="hud" class="tab-content">
       <div class="card">
-        <h2>Rekomendasi HUD Pro</h2>
+        <h2>Pro HUD Recommendations</h2>
         
         <div class="content-section">
-          <h3 class="content-title">✌️ HUD 2 Jari (Classic Rusher)</h3>
+          <h3 class="content-title">✌️ 2-Finger HUD (Classic Rusher)</h3>
           <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
-            <li style="margin-bottom: 6px;">👉 <b>Tombol Tembak Kanan:</b> Ukuran 45-50%, letakkan agak ke bawah agar tarikan Drag Headshot lebih panjang.</li>
-            <li style="margin-bottom: 6px;">👉 <b>Transparansi (Alpha):</b> 60% agar pandangan layar tidak terhalang tombol.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Right Fire Button:</b> Size 45-50%, positioned slightly lower for longer drag headshot space.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Transparency:</b> Set to 60% so buttons don't block your vision.</li>
           </ul>
         </div>
         
         <div class="content-section">
-          <h3 class="content-title">🤟 HUD 3 Jari (Fast Movement)</h3>
+          <h3 class="content-title">🤟 3-Finger HUD (Fast Movement)</h3>
           <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
-            <li style="margin-bottom: 6px;">👉 <b>Tombol Tembak Kiri:</b> Selalu Aktif. Letakkan di kiri atas (dikontrol telunjuk kiri).</li>
-            <li style="margin-bottom: 6px;">👉 <b>Gloo Wall:</b> Di bawah tombol tembak kiri agar pasang Gloo Wall instan sambil lari.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Left Fire Button:</b> Always Active. Placed on top-left (controlled by left index finger).</li>
+            <li style="margin-bottom: 6px;">👉 <b>Gloo Wall:</b> Placed right below the left fire button for instant deployment while running.</li>
           </ul>
         </div>
 
         <div class="content-section">
-          <h3 class="content-title">🖖 HUD 4 Jari (God Tier / Sniper)</h3>
+          <h3 class="content-title">🖖 4-Finger HUD (God Tier / Sniper)</h3>
           <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
-            <li style="margin-bottom: 6px;">👉 <b>Scope:</b> Pindahkan ke kanan atas (dikontrol telunjuk kanan).</li>
-            <li style="margin-bottom: 6px;">👉 <b>Switch Senjata:</b> Dekat dengan tombol Scope untuk *quick switch* AWM tanpa *reload*.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Scope:</b> Moved to top-right (controlled by right index finger).</li>
+            <li style="margin-bottom: 6px;">👉 <b>Weapon Switch:</b> Close to the scope button for quick AWM switching without reload gaps.</li>
           </ul>
         </div>
 
         <div class="content-section">
-          <h3 class="content-title">🖐️ HUD 5 Jari (iPad / Tablet PC)</h3>
+          <h3 class="content-title">🖐️ 5-Finger HUD (iPad / Tablet PC)</h3>
           <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
-            <li style="margin-bottom: 6px;">👉 <b>Kiri Atas:</b> Tembak Kiri & Gloo Wall (Jari telunjuk & tengah kiri).</li>
-            <li style="margin-bottom: 6px;">👉 <b>Kanan Atas:</b> Loncat, Jongkok, Scope (Jari telunjuk & tengah kanan).</li>
-            <li style="margin-bottom: 6px;">👉 <b>Jempol:</b> Murni hanya untuk menggeser layar dan analog.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Top Left:</b> Left Fire & Gloo Wall (Left index & middle fingers).</li>
+            <li style="margin-bottom: 6px;">👉 <b>Top Right:</b> Jump, Crouch, Scope (Right index & middle fingers).</li>
+            <li style="margin-bottom: 6px;">👉 <b>Thumbs:</b> Strictly for screen swiping and movement joystick.</li>
           </ul>
         </div>
 
-        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-alt">📥 DOWNLOAD SCREENSHOT HUD</a>
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-alt">📥 DOWNLOAD HUD SCREENSHOTS</a>
       </div>
     </div>
 
-    <!-- 4. TAB COMBO SKILL -->
+    <!-- 4. SKILL COMBO TAB -->
     <div id="skill" class="tab-content">
       <div class="card">
-        <h2>Meta Combo Skill Terbaru</h2>
+        <h2>Latest Meta Skill Combos</h2>
         
         <div class="content-section">
-          <h3 class="content-title">🛡️ Meta Rusher Kebal (CS/BR)</h3>
-          <p class="content-desc">Masuk ke pertahanan musuh tanpa takut mati konyol.</p>
+          <h3 class="content-title">🛡️ Immortal Rusher Meta (CS/BR)</h3>
+          <p class="content-desc">Push directly into enemy lines without fear of instant elimination.</p>
           <div class="highlight-box">
-            <b>Orion</b> (Aktif) + <b>Miguel</b> (EP Instan) + <b>Kelly</b> (Lari) + <b>Sonia</b> (Shield Nyawa)
+            <b>Orion</b> (Active) + <b>Miguel</b> (Instant EP) + <b>Kelly</b> (Sprint Speed) + <b>Sonia</b> (Extra Shield Life)
           </div>
         </div>
 
         <div class="content-section">
-          <h3 class="content-title">🎯 Meta Sniper Silent</h3>
-          <p class="content-desc">Menembak dari kejauhan tanpa memunculkan tanda merah di map musuh.</p>
+          <h3 class="content-title">🎯 Silent Sniper Meta</h3>
+          <p class="content-desc">Eliminate enemies from afar without triggering red markers on their mini-map.</p>
           <div class="highlight-box">
-            <b>Rafael</b> (Silent) + <b>Iris</b> (Tembus Gloo) + <b>Maro</b> (Damage Jarak) + <b>Laura</b> (Akurasi Scope)
+            <b>Rafael</b> (Silent) + <b>Iris</b> (Shoot Through Gloo) + <b>Maro</b> (Long Range Damage) + <b>Laura</b> (Scope Accuracy)
           </div>
         </div>
 
         <div class="content-section">
-          <h3 class="content-title">⛺ Meta Ngendok / Camper (Push Rank)</h3>
-          <p class="content-desc">Survive di luar zona aman dan darah tidak habis-habis.</p>
+          <h3 class="content-title">⛺ Camper / Survival Meta (Rank Push)</h3>
+          <p class="content-desc">Survive outside safe zones with continuous HP recovery.</p>
           <div class="highlight-box-info">
-            <b>K (Captain)</b> (Aktif Regen EP) + <b>Ford</b> (Tahan Zona) + <b>Luqueta</b> (Max HP Naik) + <b>Leon</b> (Regen HP)
+            <b>K (Captain)</b> (Active EP Regen) + <b>Ford</b> (Zone Damage Reduction) + <b>Luqueta</b> (Max HP Increase) + <b>Leon</b> (HP Regen)
           </div>
         </div>
 
         <div class="content-section">
-          <h3 class="content-title">🚑 Meta Full Support / Healer</h3>
-          <p class="content-desc">Sangat disukai teman satu tim, bisa *revive* otomatis dengan cepat.</p>
+          <h3 class="content-title">🚑 Full Support / Healer Meta</h3>
+          <p class="content-desc">Highly valued by teammates, allows lightning-fast automated revives.</p>
           <div class="highlight-box-danger">
-            <b>Dimitri</b> (Area Revive) + <b>Thiva</b> (Revive Cepat) + <b>Olivia</b> (Bagi Heal) + <b>Kapella</b> (Efek Heal Naik)
+            <b>Dimitri</b> (Revive Zone) + <b>Thiva</b> (Fast Revive) + <b>Olivia</b> (Share Heal) + <b>Kapella</b> (Healing Effect Boost)
           </div>
         </div>
 
-        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-blue">🔥 BUKA SKILL RAHASIA TOP GLOBAL</a>
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-blue">🔥 UNLOCK TOP GLOBAL SECRET SKILLS</a>
       </div>
     </div>
 
-    <!-- 5. TAB ANTI-LAG -->
+    <!-- 5. ANTI-LAG TAB -->
     <div id="antilag" class="tab-content">
       <div class="card">
-        <h2>Settingan Ekstrem Anti-Lag</h2>
+        <h2>Extreme Anti-Lag Settings</h2>
         
         <div class="content-section">
-          <h3 class="content-title">📱 Trik Opsi Pengembang (Developer)</h3>
-          <p class="content-desc">Buka <i>Developer Options</i> di pengaturan HP kamu dan atur bagian ini:</p>
+          <h3 class="content-title">📱 Developer Options Tweaks</h3>
+          <p class="content-desc">Open <i>Developer Options</i> in your phone settings and adjust these:</p>
           <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
-            <li style="margin-bottom: 6px;">👉 <b>Skala Animasi:</b> Ubah Skala Jendela, Transisi, dan Animator menjadi <b>0.5x</b> atau Matikan.</li>
-            <li style="margin-bottom: 6px;">👉 <b>Paksa 4x MSAA:</b> Aktifkan jika layar sering *tearing* (pecah).</li>
-            <li style="margin-bottom: 6px;">👉 <b>Batas Proses Latar Belakang:</b> Ubah ke "Maksimal 2 proses" agar RAM fokus ke game.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Animation Scales:</b> Window, Transition, and Animator scales set to <b>0.5x</b> or Off.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Force 4x MSAA:</b> Enable for sharper graphics performance.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Background Process Limit:</b> Set to "At most 2 processes" to focus RAM on gaming.</li>
           </ul>
         </div>
 
         <div class="content-section">
-          <h3 class="content-title">🌐 Stabilizer Jaringan (Ping Merah)</h3>
-          <p class="content-desc">Jika Ping sering lompat ke 999+, gunakan Private DNS tanpa perlu instal aplikasi VPN.</p>
+          <h3 class="content-title">🌐 Network Stabilizer (High Ping Fix)</h3>
+          <p class="content-desc">If your ping spikes to 999+, use Private DNS without installing third-party VPN apps.</p>
           <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
-            <li style="margin-bottom: 6px;">👉 Masuk ke Pengaturan HP > Koneksi > <b>Private DNS</b>.</li>
-            <li style="margin-bottom: 6px;">👉 Pilih *Designated DNS* lalu ketik: <code>dns.google</code> atau <code>1dot1dot1dot1.cloudflare-dns.com</code></li>
+            <li style="margin-bottom: 6px;">👉 Go to Phone Settings > Connections > <b>Private DNS</b>.</li>
+            <li style="margin-bottom: 6px;">👉 Select *Designated Private DNS provider hostname* and type: <code>dns.google</code> or <code>1dot1dot1dot1.cloudflare-dns.com</code></li>
           </ul>
         </div>
 
         <div class="content-section">
-          <h3 class="content-title">⚙️ Settingan Grafis In-Game</h3>
+          <h3 class="content-title">⚙️ In-Game Graphics Settings</h3>
           <div class="highlight-box-danger">
-            Grafis: <b>Smooth</b> | Resolusi: <b>Normal</b> | High FPS: <b>High</b> (Agar pergerakan kamera licin!)
+            Graphics: <b>Smooth</b> | Resolution: <b>Normal</b> | High FPS: <b>High</b> (For buttery-smooth camera movement!)
           </div>
         </div>
 
-        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-red">🚀 DOWNLOAD SCRIPT GFX BOOSTER</a>
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-red">🚀 DOWNLOAD GFX BOOSTER SCRIPT</a>
       </div>
     </div>
 
-    <!-- 6. TAB EVENT -->
+    <!-- 6. EVENTS TAB -->
     <div id="event" class="tab-content">
       <div class="card">
-        <h2>Radar Event & Redeem Code</h2>
+        <h2>Event Radar & Redeem Codes</h2>
         
         <div class="event-item">
           <div class="event-date"><div class="day">19</div><div class="month">SEP</div></div>
           <div class="event-info">
-            <h4>Mistery Shop Spesial</h4>
-            <p>Diskon hingga 90% untuk Elite Pass & Bundle eksklusif.</p>
+            <h4>Special Mystery Shop</h4>
+            <p>Up to 90% discount on Elite Passes and exclusive bundles.</p>
           </div>
         </div>
         
         <div class="event-item">
           <div class="event-date"><div class="day">23</div><div class="month">SEP</div></div>
           <div class="event-info">
-            <h4>Diskon Booyah Pass</h4>
-            <p>Event web dadakan. Booyah Pass Premium didiskon menjadi 99 Diamond saja!</p>
+            <h4>Booyah Pass Discount</h4>
+            <p>Flash web event. Premium Booyah Pass discounted down to just 99 Diamonds!</p>
           </div>
         </div>
 
         <div class="event-item">
           <div class="event-date"><div class="day">25</div><div class="month">SEP</div></div>
           <div class="event-info">
-            <h4>Incubator 3-in-1</h4>
-            <p>Bocoran: Tiga blueprint seri lama akan kembali digabung dalam satu Spin Luck Royale.</p>
+            <h4>Incubator 3-in-1 Return</h4>
+            <p>Leak: Three legacy blueprint series will return bundled into a single Luck Royale spin.</p>
           </div>
         </div>
 
-        <!-- KODE REDEEM 1 (UTAMA) -->
+        <!-- REDEEM CODE 1 -->
         <div class="redeem-box">
-          <h3 style="color: var(--text-light); font-size: 20px; margin-bottom: 5px;">KODE REDEEM (DIAMOND/BUNDLE)</h3>
-          <div class="redeem-status"><span class="dot"></span> Aktif (Tersisa <span id="angka-kuota1">1.450</span> kuota)</div>
+          <h3 style="color: var(--text-light); font-size: 20px; margin-bottom: 5px;">REDEEM CODE (DIAMONDS/BUNDLE)</h3>
+          <div class="redeem-status"><span class="dot"></span> Active (Remaining: <span id="angka-kuota1">1,450</span> slots)</div>
           <div class="redeem-code">FF26-PRO9-X8A2</div>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">*Ketuk kode untuk menyalin otomatis.</p>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">*Tap the code to copy automatically.</p>
         </div>
 
-        <!-- KODE REDEEM 2 (HAMPIR HABIS) -->
+        <!-- REDEEM CODE 2 (URGENT) -->
         <div class="redeem-box danger">
-          <h3 style="color: var(--text-light); font-size: 20px; margin-bottom: 5px;">KODE REDEEM (EVO GUN TOKEN)</h3>
-          <div class="redeem-status"><span class="dot red"></span> Hampir Habis (Tersisa <span id="angka-kuota2">48</span> kuota!)</div>
+          <h3 style="color: var(--text-light); font-size: 20px; margin-bottom: 5px;">REDEEM CODE (EVO GUN TOKENS)</h3>
+          <div class="redeem-status"><span class="dot red"></span> Almost Out! (Only <span id="angka-kuota2">48</span> slots left!)</div>
           <div class="redeem-code">FFEV-0TKN-8X9Z</div>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">*Segera tukarkan di reward.ff.garena.com</p>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">*Redeem immediately at reward.ff.garena.com</p>
         </div>
 
-        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink" onclick="kurangiKuota()">🎁 KLAIM SEMUA HADIAH SEKARANG</a>
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink" onclick="kurangiKuota()">🎁 CLAIM ALL REWARDS NOW</a>
       </div>
     </div>
 
   </div>
 
   <script>
-    // 1. NAVIGASI TAB
+    // 1. TAB NAVIGATION
     function openTab(tabId, btnElement) {
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
       btnElement.classList.add('active');
       
-      // Auto-scroll menu tab agar tombol yang diklik ke tengah (khusus mobile)
       btnElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
-    // 2. KALKULATOR SENSITIVITAS
+    // 2. SENSITIVITY CALCULATOR
     const baseSensi = { general: 90, reddot: 85, x2: 80, x4: 75, sniper: 55, free: 70 };
     const namaSensi = [
-      { id: 'general', label: 'Sekeliling' }, { id: 'reddot', label: 'Red Dot' },
+      { id: 'general', label: 'General' }, { id: 'reddot', label: 'Red Dot' },
       { id: 'x2', label: '2x Scope' }, { id: 'x4', label: '4x Scope' },
       { id: 'sniper', label: 'Sniper' }, { id: 'free', label: 'Free Look' }
     ];
@@ -471,7 +470,7 @@
       document.getElementById('result-sensi').classList.add('show');
     }
 
-    // 3. FUNGSI COPY SIMBOL NICKNAME
+    // 3. COPY NICKNAME SYMBOLS
     function salinSimbol(teks) {
       const tempInput = document.createElement("textarea");
       tempInput.value = teks;
@@ -481,7 +480,7 @@
       document.body.removeChild(tempInput);
 
       const toast = document.getElementById('copy-toast');
-      toast.innerText = "✅ Simbol  " + teks + "  tersalin ke clipboard!";
+      toast.innerText = "✅ Symbol " + teks + " copied to clipboard!";
       toast.style.display = 'block';
       
       setTimeout(() => {
@@ -489,19 +488,17 @@
       }, 2500);
     }
 
-    // 4. FUNGSI MENGURANGI KUOTA EVENT (Multi-Code)
+    // 4. DECREMENT EVENT QUOTA
     function kurangiKuota() {
-      // Kuota Kode 1
       const kuotaEl1 = document.getElementById('angka-kuota1');
-      let k1 = parseInt(kuotaEl1.innerText.replace('.', '')); 
+      let k1 = parseInt(kuotaEl1.innerText.replace(',', '')); 
       if(k1 > 0) {
-        k1 -= Math.floor(Math.random() * 3) + 1; // Kurangi random 1-3
-        kuotaEl1.innerText = k1.toLocaleString('id-ID'); 
+        k1 -= Math.floor(Math.random() * 3) + 1; 
+        kuotaEl1.innerText = k1.toLocaleString('en-US'); 
       }
       
-      // Kuota Kode 2 (Efek Panik)
       const kuotaEl2 = document.getElementById('angka-kuota2');
-      let k2 = parseInt(kuotaEl2.innerText.replace('.', '')); 
+      let k2 = parseInt(kuotaEl2.innerText); 
       if(k2 > 0) {
         k2 -= 1; 
         kuotaEl2.innerText = k2; 
