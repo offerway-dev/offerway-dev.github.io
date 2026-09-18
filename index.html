@@ -48,34 +48,52 @@
     .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
     .card h2 { font-size: 28px; margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 12px; }
     
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-weight: 800; margin-bottom: 10px; color: var(--primary); }
+    .form-group { margin-bottom: 25px; }
+    .form-group label { display: block; font-weight: 800; margin-bottom: 10px; color: var(--primary); font-size: 18px;}
     .radio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .radio-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .radio-btn { position: relative; }
     .radio-btn input { position: absolute; opacity: 0; }
-    .radio-btn span { display: block; text-align: center; border: 2px solid var(--border); padding: 12px 5px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--text-muted); }
+    .radio-btn span { display: block; text-align: center; border: 2px solid var(--border); padding: 12px 5px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--text-muted); transition: 0.2s;}
     .radio-btn input:checked + span { border-color: var(--primary); color: var(--primary); background: rgba(255, 184, 0, 0.1); }
     
-    .btn-action { display: block; width: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); color: #000; border: none; padding: 16px; border-radius: 12px; font-family: 'Teko', sans-serif; font-size: 24px; cursor: pointer; }
+    .btn-action { display: block; width: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); color: #000; border: none; padding: 16px; border-radius: 12px; font-family: 'Teko', sans-serif; font-size: 26px; cursor: pointer; transition: 0.2s;}
+    .btn-action:active { transform: scale(0.98); }
     
     /* Tombol Smartlink Khusus */
-    .btn-smartlink { display: block; width: 100%; background: #10B981; color: #fff; text-align: center; text-decoration: none; padding: 16px; border-radius: 12px; font-family: 'Teko', sans-serif; font-size: 24px; margin-top: 15px; animation: pulse 2s infinite; }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+    .btn-smartlink { display: block; width: 100%; background: #10B981; color: #fff; text-align: center; text-decoration: none; padding: 16px; border-radius: 12px; font-family: 'Teko', sans-serif; font-size: 26px; margin-top: 20px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); transition: 0.2s;}
+    .btn-smartlink:active { transform: scale(0.98); }
+    .btn-smartlink-alt { background: var(--secondary); box-shadow: 0 4px 15px rgba(255, 92, 0, 0.3); }
 
-    .result-box { display: none; margin-top: 25px; padding: 20px; border-radius: 12px; border: 1px dashed var(--primary); }
+    .result-box { display: none; margin-top: 25px; padding: 20px; border-radius: 12px; border: 1px dashed var(--primary); background: rgba(0,0,0,0.2); }
     .result-box.show { display: block; }
     .slider-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
     .slider-name { font-weight: 600; width: 90px; font-size: 14px; }
     .slider-track { flex: 1; height: 8px; background: var(--border); border-radius: 5px; margin: 0 15px; position: relative; }
-    .slider-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--primary); width: 0; transition: width 1s; }
-    .slider-val { font-family: 'Teko', sans-serif; font-size: 22px; color: var(--primary); width: 40px; text-align: right; }
+    .slider-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--primary); width: 0; transition: width 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .slider-val { font-family: 'Teko', sans-serif; font-size: 24px; color: var(--primary); width: 40px; text-align: right; }
 
-    .event-item { display: flex; gap: 15px; padding: 15px; border-radius: 12px; margin-bottom: 12px; border: 1px solid var(--border); }
-    .event-date { background: rgba(255, 92, 0, 0.1); color: var(--secondary); padding: 10px; border-radius: 8px; text-align: center; min-width: 65px; }
-    .event-date .day { font-family: 'Teko', sans-serif; font-size: 26px; line-height: 1; }
-    .event-info h4 { font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800; }
-    .redeem-box { text-align: center; padding: 20px; border-radius: 12px; border: 1px dashed var(--success); margin-top: 15px; }
-    .redeem-code { font-family: monospace; font-size: 24px; color: var(--success); background: rgba(16, 185, 129, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0; display: inline-block; }
+    /* HUD Content styling */
+    .hud-section { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .hud-section:last-child { border-bottom: none; padding-bottom: 0; }
+    .hud-title { display: flex; align-items: center; gap: 8px; color: var(--primary); font-size: 22px; margin-bottom: 12px; }
+    .hud-desc { color: var(--text-muted); font-size: 14.5px; margin-bottom: 15px; line-height: 1.5; }
+    .hud-pros { background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--success); padding: 10px 12px; font-size: 13px; color: var(--text-light); border-radius: 0 8px 8px 0; }
+
+    /* Event Content styling */
+    .event-item { display: flex; gap: 15px; padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid var(--border); background: rgba(0,0,0,0.2); transition: 0.3s;}
+    .event-item:hover { border-color: var(--primary); }
+    .event-date { background: rgba(255, 92, 0, 0.1); color: var(--secondary); padding: 12px; border-radius: 8px; text-align: center; min-width: 70px; display: flex; flex-direction: column; justify-content: center;}
+    .event-date .day { font-family: 'Teko', sans-serif; font-size: 28px; line-height: 1; }
+    .event-info h4 { font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 800; margin-bottom: 5px;}
+    .event-info p { font-size: 13.5px; color: var(--text-muted); }
+    
+    .redeem-box { text-align: center; padding: 25px 20px; border-radius: 12px; border: 2px dashed var(--success); margin-top: 25px; background: rgba(16, 185, 129, 0.05);}
+    .redeem-code { font-family: monospace; font-size: 28px; color: var(--success); background: rgba(0,0,0,0.5); padding: 12px 20px; border-radius: 8px; margin: 15px 0; display: inline-block; letter-spacing: 2px; font-weight: bold; border: 1px solid var(--success);}
+    .redeem-status { font-size: 14px; font-weight: bold; color: var(--text-light); display: flex; align-items: center; justify-content: center; gap: 6px;}
+    .dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block; animation: blink 1.5s infinite;}
+    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
   </style>
 </head>
 <body>
@@ -83,12 +101,13 @@
   <header>
     <div class="header-content">
       <div class="logo">FF <span>HUB</span></div>
+      <div style="font-size: 13px; color: var(--text-muted); font-weight: bold;">v2026.5</div>
     </div>
   </header>
 
   <div class="container">
     <h1>Portal Pro Player</h1>
-    <p class="lead">Dapatkan settingan auto-headshot, racikan HUD, hingga event terbaru.</p>
+    <p class="lead">Dapatkan settingan sensitivitas auto-headshot, racikan HUD rahasia, hingga bocoran event & kode redeem terbaru.</p>
 
     <div class="tabs">
       <button class="tab-btn active" onclick="openTab('sensi', this)">⚙️ SENSITIVITAS</button>
@@ -100,33 +119,53 @@
     <div id="sensi" class="tab-content active">
       <div class="card">
         <h2>Kalkulator Anti-Miss</h2>
+        <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 20px;">Masukkan spesifikasi dan gaya bermainmu untuk meracik angka sensitivitas paling stabil.</p>
         
         <div class="form-group">
           <label>1. Ukuran Layar HP</label>
           <div class="radio-grid">
-            <label class="radio-btn"><input type="radio" name="layar" value="kecil"/><span>Kecil</span></label>
-            <label class="radio-btn"><input type="radio" name="layar" value="sedang" checked/><span>Sedang</span></label>
-            <label class="radio-btn"><input type="radio" name="layar" value="besar"/><span>Tablet</span></label>
+            <label class="radio-btn"><input type="radio" name="layar" value="kecil"/><span>Kecil<br/><small>(&lt; 6.3")</small></span></label>
+            <label class="radio-btn"><input type="radio" name="layar" value="sedang" checked/><span>Sedang<br/><small>(6.3 - 6.7")</small></span></label>
+            <label class="radio-btn"><input type="radio" name="layar" value="besar"/><span>Tablet<br/><small>(iPad/Tab)</small></span></label>
           </div>
         </div>
 
         <div class="form-group">
-          <label>2. Gaya Bermain</label>
+          <label>2. Kapasitas RAM HP</label>
           <div class="radio-grid">
-            <label class="radio-btn"><input type="radio" name="gaya" value="rusher" checked/><span>Rusher</span></label>
-            <label class="radio-btn"><input type="radio" name="gaya" value="support"/><span>Support</span></label>
-            <label class="radio-btn"><input type="radio" name="gaya" value="sniper"/><span>Sniper</span></label>
+            <label class="radio-btn"><input type="radio" name="ram" value="low"/><span>2 - 4 GB<br/><small>(Low)</small></span></label>
+            <label class="radio-btn"><input type="radio" name="ram" value="mid" checked/><span>6 - 8 GB<br/><small>(Mid)</small></span></label>
+            <label class="radio-btn"><input type="radio" name="ram" value="high"/><span>12GB+<br/><small>(High)</small></span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>3. Gaya Bermain Utama</label>
+          <div class="radio-grid">
+            <label class="radio-btn"><input type="radio" name="gaya" value="rusher" checked/><span>Rusher<br/><small>(Jarak Dekat)</small></span></label>
+            <label class="radio-btn"><input type="radio" name="gaya" value="support"/><span>Support<br/><small>(Jarak Menengah)</small></span></label>
+            <label class="radio-btn"><input type="radio" name="gaya" value="sniper"/><span>Sniper<br/><small>(Jarak Jauh)</small></span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>4. Penggunaan DPI Tambahan?</label>
+          <div class="radio-grid-2">
+            <label class="radio-btn"><input type="radio" name="dpi" value="no" checked/><span>Tidak (DPI Standar)</span></label>
+            <label class="radio-btn"><input type="radio" name="dpi" value="yes"/><span>Ya (DPI Tinggi)</span></label>
           </div>
         </div>
 
         <button class="btn-action" onclick="generateSensi()">Generate Settingan 🔥</button>
 
         <div class="result-box" id="result-sensi">
-          <p style="text-align: center; color: var(--primary); font-weight: bold; margin-bottom: 15px;">Salin angka ini:</p>
+          <p style="text-align: center; color: var(--primary); font-weight: bold; margin-bottom: 5px; font-size: 18px;">Target Terkunci!</p>
+          <p style="text-align: center; color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Salin angka ini sebagai patokan dasar.</p>
+          
           <div id="sliders-container"></div>
           
-          <!-- TOMBOL SMARTLINK MONETAG -->
-          <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">🔓 BUKA KUNCI FITUR VIP</a>
+          <!-- TOMBOL SMARTLINK MONETAG 1 -->
+          <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">🔓 BUKA SETTINGAN DPI VIP</a>
         </div>
       </div>
     </div>
@@ -135,36 +174,83 @@
     <div id="hud" class="tab-content">
       <div class="card">
         <h2>Rekomendasi HUD Pro</h2>
-        <h3 style="color: var(--primary); font-size: 20px; margin-bottom: 10px;">✌️ HUD 2 Jari</h3>
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">Sembunyikan tombol tembak kiri. Ukuran tombol tembak kanan 45-55%.</p>
         
-        <h3 style="color: var(--primary); font-size: 20px; margin-bottom: 10px;">🤟 HUD 3 Jari</h3>
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">Tombol tembak kiri selalu aktif di pojok kiri atas. Tombol gloo wall di kiri tengah.</p>
+        <div class="hud-section">
+          <h3 class="hud-title">✌️ HUD 2 Jari (Classic Rusher)</h3>
+          <p class="hud-desc">Cocok untuk pemain pemula hingga menengah yang fokus pada akurasi tembakan *drag headshot*.</p>
+          <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
+            <li style="margin-bottom: 6px;">👉 <b>Tombol Tembak Kiri:</b> Sembunyikan.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Tombol Tembak Kanan:</b> Ukuran 45-50%, letakkan agak ke bawah agar ruang tarik ke atas luas.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Gloo Wall:</b> Kiri tengah, ukuran 80-90%.</li>
+          </ul>
+          <div class="hud-pros">Keunggulan: Akurasi tembakan jarak menengah (AR) sangat tinggi.</div>
+        </div>
+        
+        <div class="hud-section">
+          <h3 class="hud-title">🤟 HUD 3 Jari (Fast Movement)</h3>
+          <p class="hud-desc">Settingan populer pro player untuk kelincahan maksimal dan *fast gloo wall*.</p>
+          <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
+            <li style="margin-bottom: 6px;">👉 <b>Tombol Tembak Kiri:</b> Selalu Aktif, letakkan di kiri atas (telunjuk kiri).</li>
+            <li style="margin-bottom: 6px;">👉 <b>Gloo Wall:</b> Di bawah tombol tembak kiri.</li>
+            <li style="margin-bottom: 6px;">👉 <b>Tombol Loncat:</b> Kanan atas atau dekat tombol tembak kanan.</li>
+          </ul>
+          <div class="hud-pros">Keunggulan: Bisa *jump shoot* dan pasang gloo wall super cepat sambil berlari.</div>
+        </div>
 
-        <!-- TOMBOL SMARTLINK MONETAG -->
-        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">📥 DOWNLOAD LAYOUT HUD</a>
+        <div class="hud-section">
+          <h3 class="hud-title">🖖 HUD 4 Jari (God Tier)</h3>
+          <p class="hud-desc">Sangat disarankan untuk pemain *sniper* (AWM) atau rotasi cepat di turnamen.</p>
+          <ul style="list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 14px;">
+            <li style="margin-bottom: 6px;">👉 <b>Scope:</b> Kanan atas (telunjuk kanan).</li>
+            <li style="margin-bottom: 6px;">👉 <b>Tombol Tembak Kiri:</b> Kiri atas (telunjuk kiri).</li>
+            <li style="margin-bottom: 6px;">👉 <b>Switch Senjata:</b> Dekat tombol tembak untuk *quick weapon switch*.</li>
+          </ul>
+          <div class="hud-pros">Keunggulan: Multitasking sempurna, tembakan *sniper* tanpa *reload* jeda.</div>
+        </div>
+
+        <!-- TOMBOL SMARTLINK MONETAG 2 -->
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink btn-smartlink-alt">📥 DOWNLOAD SCREENSHOT HUD</a>
       </div>
     </div>
 
     <!-- TAB 3: EVENT -->
     <div id="event" class="tab-content">
       <div class="card">
-        <h2>Radar Event & Redeem</h2>
+        <h2>Radar Event & Bocoran</h2>
+        
         <div class="event-item">
           <div class="event-date"><div class="day">19</div><div class="month">SEP</div></div>
           <div class="event-info">
             <h4>Mistery Shop Spesial</h4>
-            <p style="font-size: 13px; color: var(--text-muted);">Diskon hingga 90% Elite Pass.</p>
+            <p>Diskon hingga 90% untuk Elite Pass & Bundle eksklusif. Siapkan diamond-mu!</p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date"><div class="day">22</div><div class="month">SEP</div></div>
+          <div class="event-info">
+            <h4>Top-Up Bonus 100%</h4>
+            <p>Event rahasia akhir bulan. Top up nominal berapapun dapat bonus diamond ganda (Max 1000 DM).</p>
+          </div>
+        </div>
+        
+        <div class="event-item">
+          <div class="event-date"><div class="day">25</div><div class="month">SEP</div></div>
+          <div class="event-info">
+            <h4>Evo Gun Return</h4>
+            <p>Bocoran: Evo Gun MP40 Predatory Cobra akan kembali di Faded Wheel minggu depan.</p>
           </div>
         </div>
 
         <div class="redeem-box">
-          <h3>KODE REDEEM HARI INI</h3>
+          <h3 style="color: var(--text-light); font-size: 22px; margin-bottom: 5px;">KODE REDEEM HARI INI</h3>
+          <div class="redeem-status"><span class="dot"></span> Aktif (Tersisa 1.450 kuota)</div>
           <div class="redeem-code">FF26-PRO9-X8A2</div>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">*Tukarkan segera di situs reward resmi Garena.</p>
         </div>
 
-        <!-- TOMBOL SMARTLINK MONETAG -->
-        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">🎁 KLAIM REWARD SEKARANG</a>
+        <!-- TOMBOL SMARTLINK MONETAG 3 -->
+        <a href="LINK_SMARTLINK_MONETAG_ANDA_DI_SINI" target="_blank" class="btn-smartlink">🎁 KLAIM HADIAH SEKARANG</a>
       </div>
     </div>
 
@@ -178,7 +264,7 @@
       btnElement.classList.add('active');
     }
 
-    const baseSensi = { general: 95, reddot: 90, x2: 85, x4: 80, sniper: 60, free: 75 };
+    const baseSensi = { general: 90, reddot: 85, x2: 80, x4: 75, sniper: 55, free: 70 };
     const namaSensi = [
       { id: 'general', label: 'Sekeliling' }, { id: 'reddot', label: 'Red Dot' },
       { id: 'x2', label: '2x Scope' }, { id: 'x4', label: '4x Scope' },
@@ -187,16 +273,26 @@
 
     function generateSensi() {
       const layar = document.querySelector('input[name="layar"]:checked').value;
+      const ram = document.querySelector('input[name="ram"]:checked').value;
       const gaya = document.querySelector('input[name="gaya"]:checked').value;
+      const dpi = document.querySelector('input[name="dpi"]:checked').value;
       
-      let modLayar = layar === 'kecil' ? 5 : (layar === 'besar' ? -10 : 0);
-      let modGaya = gaya === 'rusher' ? 3 : (gaya === 'sniper' ? -5 : 0);
+      // Kalkulasi penyesuaian
+      let modLayar = layar === 'kecil' ? 6 : (layar === 'besar' ? -12 : 0);
+      let modRam = ram === 'low' ? 5 : (ram === 'high' ? -3 : 0); // HP Low RAM butuh sensi lebih licin
+      let modGaya = gaya === 'rusher' ? 4 : (gaya === 'sniper' ? -6 : 0);
+      let modDpi = dpi === 'yes' ? -15 : 0; // Jika DPI sudah tinggi, sensi in-game harus diturunkan
 
       const container = document.getElementById('sliders-container');
       container.innerHTML = '';
 
       namaSensi.forEach(item => {
-        let finalVal = Math.max(10, Math.min(100, baseSensi[item.id] + modLayar + modGaya));
+        let finalVal = Math.max(10, Math.min(100, baseSensi[item.id] + modLayar + modRam + modGaya + modDpi));
+        
+        // Pengecualian khusus gaya main
+        if(item.id === 'general' && gaya === 'rusher' && dpi === 'no') finalVal = Math.min(100, finalVal + 5);
+        if(item.id === 'sniper' && gaya === 'sniper') finalVal = Math.max(10, finalVal + 15);
+
         const row = document.createElement('div');
         row.className = 'slider-row';
         row.innerHTML = `
