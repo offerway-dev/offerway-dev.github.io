@@ -34,20 +34,48 @@
       -webkit-font-smoothing: antialiased;
     }
     
-    header { background: rgba(21, 26, 34, 0.95); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header { background: rgba(21, 26, 34, 0.95); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 1000; }
     .header-content { max-width: 680px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: 'Teko', sans-serif; font-size: 28px; font-weight: 700; color: var(--primary); }
     .logo span { color: var(--text-light); }
 
-    .container { max-width: 680px; margin: 0 auto; padding: 30px 20px 80px; }
+    .container { max-width: 680px; margin: 0 auto; padding: 30px 20px 80px; position: relative; z-index: 2; }
     h1, h2, h3 { font-family: 'Teko', sans-serif; text-transform: uppercase; line-height: 1.1; }
     h1 { font-size: 42px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
     .lead { color: var(--text-muted); font-size: 16px; margin-bottom: 25px; }
 
-    /* TAB MENU */
-    .tabs { display: flex; gap: 10px; margin-bottom: 25px; background: var(--bg-card); padding: 10px; border-radius: 12px; overflow-x: auto; scrollbar-width: none; white-space: nowrap; border: 1px solid var(--border); -webkit-overflow-scrolling: touch;}
+    /* TAB MENU - DIATUR AGAR SELURUHNYA KEBAL DARI BLOKIRAN LAYAR IKLAN */
+    .tabs { 
+      display: flex; 
+      gap: 10px; 
+      margin-bottom: 25px; 
+      background: var(--bg-card); 
+      padding: 10px; 
+      border-radius: 12px; 
+      overflow-x: auto; 
+      scrollbar-width: none; 
+      white-space: nowrap; 
+      border: 1px solid var(--border); 
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+      z-index: 9999;
+      pointer-events: auto !important;
+    }
     .tabs::-webkit-scrollbar { display: none; }
-    .tab-btn { flex: 0 0 auto; background: transparent; border: none; padding: 12px 18px; color: var(--text-muted); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; border-radius: 8px; cursor: pointer; letter-spacing: 0.5px;}
+    .tab-btn { 
+      flex: 0 0 auto; 
+      background: transparent; 
+      border: none; 
+      padding: 12px 18px; 
+      color: var(--text-muted); 
+      font-family: 'Nunito', sans-serif; 
+      font-weight: 800; 
+      font-size: 14px; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      letter-spacing: 0.5px;
+      pointer-events: auto !important;
+    }
     .tab-btn.active { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #000; box-shadow: 0 4px 15px rgba(255, 92, 0, 0.2);}
 
     .tab-content { display: none; }
@@ -118,6 +146,11 @@
     .symbol-box.large { font-size: 18px; padding: 15px 10px;}
     .symbol-box:hover { border-color: var(--primary); color: var(--primary); background: rgba(255, 184, 0, 0.1);}
     #copy-toast { display: none; text-align: center; color: var(--success); font-weight: bold; font-size: 14px; margin-bottom: 15px; position: sticky; top: 70px; background: rgba(16, 185, 129, 0.2); padding: 10px; border-radius: 8px; z-index: 10; backdrop-filter: blur(5px);}
+
+    /* MENGATASI ELEMEN SCRIPT IKLAN AGAR TIDAK MEMBLOKIR SENTUHAN */
+    iframe[src*="al5sm.com"], div[id*="zone"] {
+      pointer-events: none !important;
+    }
   </style>
 </head>
 <body>
@@ -125,7 +158,7 @@
   <header>
     <div class="header-content">
       <div class="logo">FF <span>HUB</span></div>
-      <div style="font-size: 13px; color: var(--text-muted); font-weight: bold;">v2026.9 (Dynamic)</div>
+      <div style="font-size: 13px; color: var(--text-muted); font-weight: bold;">v2026.10 (Fixed)</div>
     </div>
   </header>
 
@@ -386,15 +419,15 @@
           </div>
         </div>
 
-        <!-- REDEEM CODE 1 (ACAK OTOMATIS) -->
+        <!-- REDEEM CODE 1 -->
         <div class="redeem-box">
           <h3 style="color: var(--text-light); font-size: 20px; margin-bottom: 5px;">REDEEM CODE (DIAMONDS/BUNDLE)</h3>
-          <div class="redeem-status"><span class="dot"></span> Active (Remaining: <span id="angka-kuota1">417</span> slots)</div>
+          <div class="redeem-status"><span class="dot"></span> Active (Remaining: <span id="angka-kuota1">1,450</span> slots)</div>
           <div class="redeem-code" id="kode-acak-1">FF26-PRO9-X8A2</div>
           <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">*Tap the code to copy automatically.</p>
         </div>
 
-        <!-- REDEEM CODE 2 (ACAK OTOMATIS URGENT) -->
+        <!-- REDEEM CODE 2 (URGENT) -->
         <div class="redeem-box danger">
           <h3 style="color: var(--text-light); font-size: 20px; margin-bottom: 5px;">REDEEM CODE (EVO GUN TOKENS)</h3>
           <div class="redeem-status"><span class="dot red"></span> Almost Out! (Only <span id="angka-kuota2">48</span> slots left!)</div>
@@ -421,11 +454,9 @@
         return `${part1}-${part2}-${part3}`;
       }
 
-      // Pasang kode acak ke elemen HTML
       document.getElementById('kode-acak-1').innerText = generateRandomCode();
       document.getElementById('kode-acak-2').innerText = generateRandomCode();
 
-      // Acak sisa kuota agar bervariasi setiap kali refresh
       const randomQuota1 = Math.floor(Math.random() * (1800 - 1100 + 1)) + 1100;
       const randomQuota2 = Math.floor(Math.random() * (65 - 25 + 1)) + 25;
 
