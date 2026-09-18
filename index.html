@@ -32,51 +32,54 @@
       -ms-user-select: none;
       user-select: none;
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px; /* Ruang agar konten terbawah tidak tertutup menu bawah */
     }
     
-    header { background: rgba(21, 26, 34, 0.95); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+    header { background: rgba(21, 26, 34, 0.95); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; }
     .header-content { max-width: 680px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: 'Teko', sans-serif; font-size: 28px; font-weight: 700; color: var(--primary); }
     .logo span { color: var(--text-light); }
 
-    .container { max-width: 680px; margin: 0 auto; padding: 30px 20px 80px; position: relative; z-index: 2; }
+    .container { max-width: 680px; margin: 0 auto; padding: 25px 20px 40px; }
     h1, h2, h3 { font-family: 'Teko', sans-serif; text-transform: uppercase; line-height: 1.1; }
     h1 { font-size: 42px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
     .lead { color: var(--text-muted); font-size: 16px; margin-bottom: 25px; }
 
-    /* TAB MENU - DIATUR AGAR SELURUHNYA KEBAL DARI BLOKIRAN LAYAR IKLAN */
+    /* MENU TAB MELAYANG DI BAWAH (BOTTOM NAVIGATION) */
     .tabs { 
+      position: fixed; 
+      bottom: 0; 
+      left: 0; 
+      width: 100%; 
+      background: rgba(15, 20, 28, 0.98); 
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border); 
       display: flex; 
-      gap: 10px; 
-      margin-bottom: 25px; 
-      background: var(--bg-card); 
-      padding: 10px; 
-      border-radius: 12px; 
-      overflow-x: auto; 
-      scrollbar-width: none; 
-      white-space: nowrap; 
-      border: 1px solid var(--border); 
-      -webkit-overflow-scrolling: touch;
-      position: relative;
-      z-index: 9999;
+      justify-content: space-around; 
+      padding: 8px 5px; 
+      z-index: 99999; 
       pointer-events: auto !important;
+      box-shadow: 0 -10px 20px rgba(0,0,0,0.5);
     }
-    .tabs::-webkit-scrollbar { display: none; }
     .tab-btn { 
-      flex: 0 0 auto; 
       background: transparent; 
       border: none; 
-      padding: 12px 18px; 
       color: var(--text-muted); 
       font-family: 'Nunito', sans-serif; 
-      font-weight: 800; 
-      font-size: 14px; 
-      border-radius: 8px; 
+      font-weight: 700; 
+      font-size: 11px; 
       cursor: pointer; 
-      letter-spacing: 0.5px;
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 3px; 
+      flex: 1;
+      padding: 6px 0;
       pointer-events: auto !important;
+      transition: 0.2s;
     }
-    .tab-btn.active { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #000; box-shadow: 0 4px 15px rgba(255, 92, 0, 0.2);}
+    .tab-btn span.icon { font-size: 18px; }
+    .tab-btn.active { color: var(--primary); font-weight: 800; transform: translateY(-3px); }
 
     .tab-content { display: none; }
     .tab-content.active { display: block; }
@@ -147,7 +150,7 @@
     .symbol-box:hover { border-color: var(--primary); color: var(--primary); background: rgba(255, 184, 0, 0.1);}
     #copy-toast { display: none; text-align: center; color: var(--success); font-weight: bold; font-size: 14px; margin-bottom: 15px; position: sticky; top: 70px; background: rgba(16, 185, 129, 0.2); padding: 10px; border-radius: 8px; z-index: 10; backdrop-filter: blur(5px);}
 
-    /* MENGATASI ELEMEN SCRIPT IKLAN AGAR TIDAK MEMBLOKIR SENTUHAN */
+    /* MENCEGAH SCRIPT IKLAN MEMBLOKIR LAYAR */
     iframe[src*="al5sm.com"], div[id*="zone"] {
       pointer-events: none !important;
     }
@@ -158,23 +161,13 @@
   <header>
     <div class="header-content">
       <div class="logo">FF <span>HUB</span></div>
-      <div style="font-size: 13px; color: var(--text-muted); font-weight: bold;">v2026.10 (Fixed)</div>
+      <div style="font-size: 13px; color: var(--text-muted); font-weight: bold;">v2026.11 (Bottom Bar)</div>
     </div>
   </header>
 
   <div class="container">
     <h1>Pro Player Portal</h1>
-    <p class="lead">Your ultimate gaming hub! Swipe the menu below for Sensitivity, VIP Nicknames, HUD layouts, Skill Combos, and Anti-Lag settings.</p>
-
-    <!-- TAB MENU -->
-    <div class="tabs">
-      <button class="tab-btn active" onclick="openTab('sensi', this)">⚙️ SENSITIVITY</button>
-      <button class="tab-btn" onclick="openTab('nick', this)">🔠 VIP NICKNAMES</button>
-      <button class="tab-btn" onclick="openTab('hud', this)">🖐️ CUSTOM HUD</button>
-      <button class="tab-btn" onclick="openTab('skill', this)">🧬 SKILL COMBO</button>
-      <button class="tab-btn" onclick="openTab('antilag', this)">🚀 ANTI-LAG</button>
-      <button class="tab-btn" onclick="openTab('event', this)">🎁 EVENTS & CODES</button>
-    </div>
+    <p class="lead">Your ultimate gaming hub! Tap the bottom navigation menu for Sensitivity, VIP Nicknames, HUD layouts, Skill Combos, and Anti-Lag settings.</p>
 
     <!-- 1. SENSITIVITY TAB -->
     <div id="sensi" class="tab-content active">
@@ -441,8 +434,18 @@
 
   </div>
 
+  <!-- BOTTOM NAVIGATION MENU (FIXED DI BAWAH) -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab('sensi', this)"><span class="icon">⚙️</span><span>Sensi</span></button>
+    <button class="tab-btn" onclick="openTab('nick', this)"><span class="icon">🔠</span><span>Nickname</span></button>
+    <button class="tab-btn" onclick="openTab('hud', this)"><span class="icon">🖐️</span><span>HUD</span></button>
+    <button class="tab-btn" onclick="openTab('skill', this)"><span class="icon">🧬</span><span>Skills</span></button>
+    <button class="tab-btn" onclick="openTab('antilag', this)"><span class="icon">🚀</span><span>Anti-Lag</span></button>
+    <button class="tab-btn" onclick="openTab('event', this)"><span class="icon">🎁</span><span>Events</span></button>
+  </div>
+
   <script>
-    // FUNGSI ACAK KODE REDEEM & KUOTA SAAT HALAMAN DIMUAT (REFRESH)
+    // FUNGSI ACAK KODE REDEEM & KUOTA SAAT HALAMAN DIMUAT
     window.addEventListener('DOMContentLoaded', () => {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
       
@@ -471,7 +474,8 @@
       document.getElementById(tabId).classList.add('active');
       btnElement.classList.add('active');
       
-      btnElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      // Auto-scroll ke atas halaman saat pindah menu agar nyaman dibaca
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // 2. SENSITIVITY CALCULATOR
